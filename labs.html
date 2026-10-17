@@ -95,7 +95,7 @@ body:after{content:"";position:fixed;inset:0;pointer-events:none;z-index:0;backg
       <div class="grid">
         <section class="card" aria-labelledby="desk">
           <h3 id="desk"><span class="i18n-ar">محطة Kali</span><span class="i18n-en">Kali workstation</span> <span class="en">Apache Guacamole</span></h3>
-          <p class="hint"><span class="i18n-ar">افتح جلسة Kali داخل المنصة. سجّل دخول Guacamole بحساب <b>student</b> (كلمة المرور من المدرب)، ثم تُفتح جلسة lab-kali تلقائياً.</span><span class="i18n-en">Open Kali inside the platform. Sign in to Guacamole as <b>student</b> (password from instructor); the lab-kali session opens automatically.</span></p>
+          <p class="hint"><span class="i18n-ar">جلسة Kali تُفتح مباشرة داخل المنصة (بدون شاشة دخول Guacamole).</span><span class="i18n-en">Kali opens directly inside the platform (no Guacamole login screen).</span></p>
           <div class="frame-wrap"><iframe id="guac" title="Guacamole Kali" loading="lazy" referrerpolicy="no-referrer" allow="clipboard-read; clipboard-write; fullscreen"></iframe></div>
           <div class="actions">
             <a class="btn" id="openGuac" href="#" target="_blank" rel="noopener">Open Guacamole</a>
@@ -122,12 +122,14 @@ async function loadConfig(){
   }catch(e){}
   const base=(cfg.guacamoleBaseUrl||'https://stationery-portland-soundtrack-weekly.trycloudflare.com/guacamole/').replace(/\/?$/,'/');
   const clientUrl=cfg.kaliClientUrl || (base+'#/client/'+(cfg.kaliClientHash||'lab-kali'));
-  document.getElementById('openGuac').href=base;
-  document.getElementById('openKali').href=clientUrl;
+  // Instant open: server mints Guacamole token (password never in browser JS)
+  const openUrl=cfg.labOpenUrl || base.replace(/\/guacamole\/?$/,'/lab/open');
+  document.getElementById('openGuac').href=openUrl;
+  document.getElementById('openKali').href=openUrl;
   const f=document.getElementById('guac');
-  f.dataset.src=clientUrl;
-  if(document.getElementById('examLabDetail').classList.contains('open')) f.src=clientUrl;
-  status.textContent='Guacamole: '+clientUrl+' · login: student (password from instructor)';
+  f.dataset.src=openUrl;
+  if(document.getElementById('examLabDetail').classList.contains('open')) f.src=openUrl;
+  status.textContent='Exam Lab · auto-connect via /lab/open (no Guacamole login)';
 }
 async function loadQuestions(){
   const box=document.getElementById('qs');

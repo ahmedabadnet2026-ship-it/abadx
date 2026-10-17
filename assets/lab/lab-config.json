@@ -3,5 +3,6 @@
   "kaliConnectionName": "lab-kali",
   "kaliClientHash": "MQBjAHBvc3RncmVzcWw=",
   "kaliClientUrl": "https://stationery-portland-soundtrack-weekly.trycloudflare.com/guacamole/#/client/MQBjAHBvc3RncmVzcWw=",
-  "studentUser": "student"
+  "studentUser": "student",
+  "labOpenUrl": "https://stationery-portland-soundtrack-weekly.trycloudflare.com/lab/open"
 }
