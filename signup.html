@@ -1,0 +1,55 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="utf-8">
+<script>(function(){try{var l=localStorage.getItem("abadx-lang")==="en"?"en":"ar";var h=document.documentElement;h.lang=l;h.dir=l==="en"?"ltr":"rtl";h.setAttribute("data-lang",l)}catch(e){}})()</script>
+<link rel="stylesheet" href="assets/i18n.css">
+<link rel="stylesheet" href="assets/topnav.css">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Abad X | إنشاء حساب · Sign up</title>
+<link rel="icon" href="assets/brand/favicon-32.png" sizes="32x32" type="image/png">
+<link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;700&family=JetBrains+Mono:wght@700&display=swap" rel="stylesheet">
+<style>
+body{margin:0;min-height:100vh;background:radial-gradient(ellipse at 50% -10%,rgba(29,111,255,.28),transparent 55%),#000;color:#e8eefc;font-family:Cairo,system-ui,sans-serif}
+.wrap{max-width:420px;margin:40px auto;padding:0 16px 60px}
+.card{background:rgba(8,14,28,.75);border:1px solid rgba(56,189,248,.3);border-radius:18px;padding:28px 22px;backdrop-filter:blur(12px);box-shadow:0 0 32px rgba(56,189,248,.1)}
+.card h1{margin:0 0 6px;font-size:1.45rem;text-align:center}
+.card .sub{margin:0 0 20px;text-align:center;color:#9db8e0;font-size:.92rem}
+label{display:block;margin:0 0 6px;font-size:.88rem;color:#b8cdec}
+input{width:100%;box-sizing:border-box;border-radius:10px;border:1px solid #16325c;background:#061222;color:#e8f1ff;
+  padding:12px 14px;font-size:1rem;margin-bottom:14px;outline:none}
+input:focus{border-color:#3f86b3;box-shadow:0 0 0 3px rgba(63,134,179,.2)}
+.btn{width:100%;border:0;border-radius:10px;padding:12px;font-weight:700;font-size:1rem;cursor:pointer;
+  background:#F5BD2D;color:#10293b;font-family:Cairo,system-ui,sans-serif}
+.btn:hover{filter:brightness(1.05)}
+.note{margin:16px 0 0;padding:10px 12px;border-radius:10px;border:1px dashed #4a6894;color:#b9cbe6;font-size:.85rem;line-height:1.5}
+.alt{margin-top:16px;text-align:center;color:#9db8e0;font-size:.92rem}
+.alt a{color:#38bdf8;font-weight:700;text-decoration:none}
+.logo{display:block;width:72px;margin:0 auto 12px}
+</style>
+</head>
+<body data-ax-page="signup">
+<main class="wrap">
+  <div class="card">
+    <img class="logo" src="assets/brand/abadx-logo.png" alt="Abad X">
+    <h1><span class="i18n-ar">إنشاء حساب</span><span class="i18n-en">Create account</span></h1>
+    <p class="sub"><span class="i18n-ar">انضم إلى منصة Abad X</span><span class="i18n-en">Join Abad X</span></p>
+    <form id="signupForm" action="#" method="post" onsubmit="return false;">
+      <label for="name"><span class="i18n-ar">الاسم</span><span class="i18n-en">Full name</span></label>
+      <input id="name" name="name" type="text" autocomplete="name" required>
+      <label for="email"><span class="i18n-ar">البريد الإلكتروني</span><span class="i18n-en">Email</span></label>
+      <input id="email" name="email" type="email" autocomplete="email" required>
+      <label for="password"><span class="i18n-ar">كلمة المرور</span><span class="i18n-en">Password</span></label>
+      <input id="password" name="password" type="password" autocomplete="new-password" required>
+      <label for="password2"><span class="i18n-ar">تأكيد كلمة المرور</span><span class="i18n-en">Confirm password</span></label>
+      <input id="password2" name="password2" type="password" autocomplete="new-password" required>
+      <button class="btn" type="submit"><span class="i18n-ar">إنشاء الحساب</span><span class="i18n-en">Sign up</span></button>
+    </form>
+    <p class="note"><span class="i18n-ar">واجهة فقط حاليًا — لا يتم إنشاء حساب فعلي حتى يتوفر الخادم. لا توجد بيانات تجريبية.</span><span class="i18n-en">UI only for now — no real account is created until the backend is ready. No demo data.</span></p>
+    <p class="alt"><span class="i18n-ar">عندك حساب؟</span><span class="i18n-en">Already have an account?</span> <a href="login.html"><span class="i18n-ar">تسجيل الدخول</span><span class="i18n-en">Login</span></a></p>
+  </div>
+</main>
+<script src="assets/topnav.js"></script>
+<script src="assets/i18n.js"></script>
+</body>
+</html>

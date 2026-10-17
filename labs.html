@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <script>(function(){try{var l=localStorage.getItem("abadx-lang")==="en"?"en":"ar";var h=document.documentElement;h.lang=l;h.dir=l==="en"?"ltr":"rtl";h.setAttribute("data-lang",l)}catch(e){}})()</script>
-<link rel="stylesheet" href="assets/i18n.css">
+<link rel="stylesheet" href="assets/i18n.css"><link rel="stylesheet" href="assets/topnav.css">
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>Abad X | المختبر · Labs</title>
 <link rel="icon" href="assets/brand/favicon-32.png" sizes="32x32" type="image/png">
@@ -47,11 +47,11 @@ body:after{content:"";position:fixed;inset:0;pointer-events:none;z-index:0;backg
 .card .en{display:block;font-family:var(--mono);font-size:.76rem;color:#6f8fbd}
 .hint{color:#a9c3e6;font-size:.92rem;margin:0 0 12px}
 .frame-wrap{position:relative;border-radius:12px;overflow:hidden;border:1px solid #16325c;background:#020814;min-height:420px}
-.frame-wrap iframe{width:100%;height:min(60vh,540px);border:0;background:#000}
+.frame-wrap iframe{width:100%;height:min(70vh,640px);border:0;background:#000}
 .actions{display:flex;flex-wrap:wrap;gap:10px;margin-top:12px}
 .btn{display:inline-flex;align-items:center;justify-content:center;border-radius:8px;padding:8px 14px;min-height:40px;font-family:var(--mono);font-size:.85rem;border:1px solid rgba(56,189,248,.5);color:#00121f;background:var(--b);font-weight:700}
 .btn.sec{background:transparent;color:#cfe7ff}
-.qs{max-height:min(60vh,540px);overflow:auto;padding-right:4px}
+.qs{max-height:min(70vh,640px);overflow:auto;padding-right:4px}
 .q{border:1px solid #16325c;border-radius:12px;padding:12px;margin:0 0 10px;background:rgba(2,8,20,.55)}
 .q h5{margin:0 0 6px;font-size:1rem;color:#dff2ff}
 .q .meta{font-family:var(--mono);font-size:.72rem;color:#7fa3d6;margin-bottom:8px}
@@ -60,9 +60,69 @@ body:after{content:"";position:fixed;inset:0;pointer-events:none;z-index:0;backg
 .closebar{display:flex;justify-content:flex-end;margin-bottom:8px}
 .closebar button{background:transparent;border:1px solid #16325c;color:#9db8e0;border-radius:8px;padding:6px 12px;min-height:38px;cursor:pointer}
 .closebar button:hover{color:var(--b);border-color:var(--b)}
+
+/* —— Exam Lab fullscreen stage —— */
+.exam-stage{position:relative;border-radius:16px;background:rgba(2,8,20,.4)}
+.exam-stage .stage-toolbar{display:flex;flex-wrap:wrap;gap:8px;align-items:center;justify-content:space-between;margin-bottom:10px}
+.exam-stage .stage-toolbar .left,.exam-stage .stage-toolbar .right{display:flex;flex-wrap:wrap;gap:8px;align-items:center}
+.fs-btn,.qs-toggle,.fs-exit{display:inline-flex;align-items:center;justify-content:center;gap:6px;
+  border-radius:10px;padding:10px 14px;min-height:44px;font-family:var(--mono);font-size:.85rem;font-weight:700;
+  border:1px solid rgba(56,189,248,.55);cursor:pointer}
+.fs-btn{background:var(--b);color:#00121f}
+.qs-toggle{background:#1a3a5c;color:#e8f4ff;border-color:#3f86b3;font-size:1rem;padding:12px 18px;min-height:48px}
+.fs-exit{background:#3a1520;color:#ffd0d8;border-color:#a33;display:none}
+.exam-stage.is-fs .fs-exit,.exam-stage.fs-css .fs-exit{display:inline-flex}
+.exam-stage.is-fs .fs-btn,.exam-stage.fs-css .fs-btn{display:none}
+.stage-body{display:grid;grid-template-columns:1.4fr 1fr;gap:18px}
+@media (max-width:960px){.stage-body{grid-template-columns:1fr}}
+.stage-kali,.stage-qs{min-width:0}
+/* Native fullscreen */
+.exam-stage:fullscreen,.exam-stage:-webkit-full-screen{
+  background:#000;padding:12px;box-sizing:border-box;width:100%;height:100%;
+  display:flex;flex-direction:column;border-radius:0}
+.exam-stage:fullscreen .stage-body,.exam-stage:-webkit-full-screen .stage-body{
+  flex:1;min-height:0;grid-template-columns:1fr;position:relative}
+.exam-stage:fullscreen .stage-kali,.exam-stage:-webkit-full-screen .stage-kali{height:100%}
+.exam-stage:fullscreen .frame-wrap,.exam-stage:-webkit-full-screen .frame-wrap{height:calc(100% - 8px);min-height:0}
+.exam-stage:fullscreen .frame-wrap iframe,.exam-stage:-webkit-full-screen .frame-wrap iframe{height:100%;min-height:60vh}
+/* iOS / unsupported Fullscreen API — CSS viewport fallback */
+.exam-stage.fs-css{
+  position:fixed!important;inset:0;z-index:99999;width:100vw;height:100vh;height:100dvh;
+  background:#000;padding:10px;box-sizing:border-box;border-radius:0;margin:0;
+  display:flex;flex-direction:column;overflow:hidden}
+.exam-stage.fs-css .stage-body{flex:1;min-height:0;grid-template-columns:1fr;position:relative}
+.exam-stage.fs-css .frame-wrap{height:calc(100% - 4px);min-height:0}
+.exam-stage.fs-css .frame-wrap iframe{height:100%}
+body.exam-fs-lock{overflow:hidden;touch-action:none}
+/* Questions drawer inside fullscreen (overlay over Kali) */
+.exam-stage:fullscreen .stage-qs,
+.exam-stage:-webkit-full-screen .stage-qs,
+.exam-stage.fs-css .stage-qs{
+  display:none;position:absolute;inset:0;z-index:5;margin:0;
+  background:rgba(4,12,24,.96);border:1px solid rgba(56,189,248,.45);border-radius:14px;
+  padding:14px;overflow:auto;box-shadow:0 0 40px rgba(0,0,0,.6)}
+.exam-stage:fullscreen.qs-open .stage-qs,
+.exam-stage:-webkit-full-screen.qs-open .stage-qs,
+.exam-stage.fs-css.qs-open .stage-qs{display:block}
+.exam-stage:fullscreen .qs-toggle,
+.exam-stage:-webkit-full-screen .qs-toggle,
+.exam-stage.fs-css .qs-toggle{display:inline-flex}
+.qs-toggle{display:none} /* only in fullscreen */
+.exam-stage:fullscreen .stage-kali .card > h3,
+.exam-stage:fullscreen .stage-kali .hint,
+.exam-stage:fullscreen .stage-kali .actions,
+.exam-stage:fullscreen .stage-kali .status,
+.exam-stage.fs-css .stage-kali .card > h3,
+.exam-stage.fs-css .stage-kali .hint,
+.exam-stage.fs-css .stage-kali .actions,
+.exam-stage.fs-css .stage-kali .status{display:none}
+.drawer-close{display:none;margin-bottom:10px}
+.exam-stage:fullscreen .drawer-close,
+.exam-stage.fs-css .drawer-close{display:inline-flex}
+
 </style>
 </head>
-<body>
+<body data-ax-page="labs">
 <main class="wrap">
   <div class="top">
     <h1 class="brand">Abad <b>X</b> · <span class="i18n-ar">المختبر</span><span class="i18n-en">Labs</span></h1>
@@ -91,23 +151,46 @@ body:after{content:"";position:fixed;inset:0;pointer-events:none;z-index:0;backg
 
     <!-- Exam Lab detail -->
     <div class="detail" id="examLabDetail">
-      <div class="closebar"><button id="closeExamLab"><span class="i18n-ar">إغلاق</span><span class="i18n-en">Close</span></button></div>
-      <div class="grid">
-        <section class="card" aria-labelledby="desk">
-          <h3 id="desk"><span class="i18n-ar">محطة Kali</span><span class="i18n-en">Kali workstation</span> <span class="en">Apache Guacamole</span></h3>
-          <p class="hint"><span class="i18n-ar">جلسة Kali تُفتح مباشرة داخل المنصة (بدون شاشة دخول Guacamole).</span><span class="i18n-en">Kali opens directly inside the platform (no Guacamole login screen).</span></p>
-          <div class="frame-wrap"><iframe id="guac" title="Guacamole Kali" loading="lazy" referrerpolicy="no-referrer" allow="clipboard-read; clipboard-write; fullscreen"></iframe></div>
-          <div class="actions">
-            <a class="btn" id="openGuac" href="#" target="_blank" rel="noopener">Open Guacamole</a>
-            <a class="btn sec" id="openKali" href="#" target="_blank" rel="noopener">Open lab-kali connection</a>
+      <div class="closebar"><button type="button" id="closeExamLab"><span class="i18n-ar">إغلاق</span><span class="i18n-en">Close</span></button></div>
+
+      <div class="exam-stage" id="examStage">
+        <div class="stage-toolbar">
+          <div class="left">
+            <button type="button" class="fs-btn" id="enterFs" title="Fullscreen">
+              ⛶ <span class="i18n-ar">ملء الشاشة</span><span class="i18n-en">Fullscreen</span>
+            </button>
+            <button type="button" class="qs-toggle" id="toggleQs" aria-expanded="false">
+              📋 <span class="i18n-ar">الأسئلة</span><span class="i18n-en">Questions</span>
+            </button>
           </div>
-          <p class="status" id="guacStatus">Loading Guacamole config…</p>
-        </section>
-        <section class="card" aria-labelledby="practice">
-          <h3 id="practice"><span class="i18n-ar">أسئلة التدريب</span><span class="i18n-en">Practice questions</span> <span class="en">eJPT-style · no answers</span></h3>
-          <p class="hint"><span class="i18n-ar">~٣٥ سؤالاً أصلياً مبنية على هذا المختبر. الإجابات عند المدرب فقط.</span><span class="i18n-en">~35 original questions mapped to this lab. Answers are instructor-only.</span></p>
-          <div class="qs" id="qs"></div>
-        </section>
+          <div class="right">
+            <button type="button" class="fs-exit" id="exitFs">
+              ✕ <span class="i18n-ar">خروج من ملء الشاشة</span><span class="i18n-en">Exit fullscreen</span>
+            </button>
+          </div>
+        </div>
+
+        <div class="stage-body">
+          <section class="card stage-kali" aria-labelledby="desk">
+            <h3 id="desk"><span class="i18n-ar">محطة Kali</span><span class="i18n-en">Kali workstation</span> <span class="en">Apache Guacamole</span></h3>
+            <p class="hint"><span class="i18n-ar">جلسة Kali مباشرة — على الجوال استخدم شريط الكتابة أو زر Keyboard أسفل الشاشة. لملء الشاشة اضغط الزر أعلاه.</span><span class="i18n-en">Kali opens directly — on phone use the text bar or Keyboard under the terminal. Use Fullscreen for an INE-style view.</span></p>
+            <div class="frame-wrap"><iframe id="guac" title="Kali terminal" loading="lazy" referrerpolicy="no-referrer" allow="clipboard-read; clipboard-write; fullscreen"></iframe></div>
+            <div class="actions">
+              <a class="btn" id="openGuac" href="#" target="_blank" rel="noopener">Open in new tab</a>
+              <a class="btn sec" id="openKali" href="#" target="_blank" rel="noopener">Open lab-kali</a>
+            </div>
+            <p class="status" id="guacStatus">Loading Guacamole config…</p>
+          </section>
+
+          <section class="card stage-qs" id="qsPanel" aria-labelledby="practice">
+            <button type="button" class="btn sec drawer-close" id="closeQsDrawer">
+              ← <span class="i18n-ar">رجوع لكالي</span><span class="i18n-en">Back to Kali</span>
+            </button>
+            <h3 id="practice"><span class="i18n-ar">أسئلة التدريب</span><span class="i18n-en">Practice questions</span> <span class="en">eJPT-style · no answers</span></h3>
+            <p class="hint"><span class="i18n-ar">~٣٥ سؤالاً أصلياً مبنية على هذا المختبر. الإجابات عند المدرب فقط.</span><span class="i18n-en">~35 original questions mapped to this lab. Answers are instructor-only.</span></p>
+            <div class="qs" id="qs"></div>
+          </section>
+        </div>
       </div>
     </div>
   </section>
@@ -123,13 +206,13 @@ async function loadConfig(){
   const base=(cfg.guacamoleBaseUrl||'https://stationery-portland-soundtrack-weekly.trycloudflare.com/guacamole/').replace(/\/?$/,'/');
   const clientUrl=cfg.kaliClientUrl || (base+'#/client/'+(cfg.kaliClientHash||'lab-kali'));
   // Instant open: server mints Guacamole token (password never in browser JS)
-  const openUrl=cfg.labOpenUrl || base.replace(/\/guacamole\/?$/,'/lab/open');
+  const openUrl=cfg.labTermUrl || cfg.labOpenUrl || base.replace(/\/guacamole\/?$/,'/lab/term');
   document.getElementById('openGuac').href=openUrl;
   document.getElementById('openKali').href=openUrl;
   const f=document.getElementById('guac');
   f.dataset.src=openUrl;
   if(document.getElementById('examLabDetail').classList.contains('open')) f.src=openUrl;
-  status.textContent='Exam Lab · auto-connect via /lab/open (no Guacamole login)';
+  status.textContent='Exam Lab · /lab/term (auto-connect + mobile keyboard bar)';
 }
 async function loadQuestions(){
   const box=document.getElementById('qs');
@@ -161,6 +244,80 @@ loadQuestions();
   }
 })();
 </script>
-<script src="assets/i18n.js"></script>
+
+<script>
+(function(){
+  const stage = document.getElementById('examStage');
+  const enterBtn = document.getElementById('enterFs');
+  const exitBtn = document.getElementById('exitFs');
+  const toggleQs = document.getElementById('toggleQs');
+  const closeQs = document.getElementById('closeQsDrawer');
+  if(!stage || !enterBtn) return;
+
+  function fsElement(){
+    return document.fullscreenElement || document.webkitFullscreenElement || null;
+  }
+  function supportsFs(){
+    return !!(stage.requestFullscreen || stage.webkitRequestFullscreen);
+  }
+  function isFs(){
+    return fsElement() === stage || stage.classList.contains('fs-css');
+  }
+  function enterFs(){
+    const req = stage.requestFullscreen || stage.webkitRequestFullscreen;
+    if (req) {
+      try {
+        const p = req.call(stage);
+        if (p && p.catch) p.catch(() => enterCssFs());
+        return;
+      } catch (e) { /* fall through */ }
+    }
+    enterCssFs();
+  }
+  function enterCssFs(){
+    stage.classList.add('fs-css');
+    document.body.classList.add('exam-fs-lock');
+    syncFsUi();
+  }
+  function exitFs(){
+    stage.classList.remove('qs-open');
+    if (toggleQs) toggleQs.setAttribute('aria-expanded','false');
+    if (fsElement() === stage) {
+      const ex = document.exitFullscreen || document.webkitExitFullscreen;
+      if (ex) { try { ex.call(document); } catch(e) {} }
+    }
+    stage.classList.remove('fs-css');
+    document.body.classList.remove('exam-fs-lock');
+    syncFsUi();
+  }
+  function syncFsUi(){
+    const on = isFs();
+    stage.classList.toggle('is-fs', on && !stage.classList.contains('fs-css'));
+    // ensure qs toggle label
+    if (!on) stage.classList.remove('qs-open');
+  }
+  function toggleQuestions(){
+    if (!isFs()) enterFs();
+    const open = !stage.classList.contains('qs-open');
+    stage.classList.toggle('qs-open', open);
+    if (toggleQs) toggleQs.setAttribute('aria-expanded', open ? 'true' : 'false');
+  }
+
+  enterBtn.addEventListener('click', enterFs);
+  exitBtn.addEventListener('click', exitFs);
+  if (toggleQs) toggleQs.addEventListener('click', toggleQuestions);
+  if (closeQs) closeQs.addEventListener('click', () => {
+    stage.classList.remove('qs-open');
+    if (toggleQs) toggleQs.setAttribute('aria-expanded','false');
+  });
+  document.addEventListener('fullscreenchange', syncFsUi);
+  document.addEventListener('webkitfullscreenchange', syncFsUi);
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape' && stage.classList.contains('fs-css')) exitFs();
+  });
+})();
+</script>
+
+<script src="assets/topnav.js"></script><script src="assets/i18n.js"></script>
 </body>
 </html>

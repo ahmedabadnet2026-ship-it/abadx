@@ -1,4 +1,4 @@
-<!doctype html><html lang="ar" dir="rtl"><head><meta charset="utf-8"><script>(function(){try{var l=localStorage.getItem("abadx-lang")==="en"?"en":"ar";var h=document.documentElement;h.lang=l;h.dir=l==="en"?"ltr":"rtl";h.setAttribute("data-lang",l)}catch(e){}})()</script><link rel="stylesheet" href="assets/i18n.css"><meta name="viewport" content="width=device-width,initial-scale=1">
+<!doctype html><html lang="ar" dir="rtl"><head><meta charset="utf-8"><script>(function(){try{var l=localStorage.getItem("abadx-lang")==="en"?"en":"ar";var h=document.documentElement;h.lang=l;h.dir=l==="en"?"ltr":"rtl";h.setAttribute("data-lang",l)}catch(e){}})()</script><link rel="stylesheet" href="assets/i18n.css"><link rel="stylesheet" href="assets/topnav.css"><meta name="viewport" content="width=device-width,initial-scale=1">
 <title>Abad X | البوابة</title><link rel="icon" href="assets/brand/favicon-32.png" sizes="32x32" type="image/png"><link rel="apple-touch-icon" href="assets/brand/favicon-180.png">
 <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@700&display=swap" rel="stylesheet"><link rel="stylesheet" href="assets/style.css">
 <style>
@@ -40,7 +40,7 @@ body:after{content:"";position:fixed;inset:0;pointer-events:none;z-index:9;backg
 @media (max-width:640px){#stage{padding:76px 16px 50px 16px}.cards{padding-left:14px}.wm{margin-bottom:70px}}
 @media (prefers-reduced-motion:reduce){.pc{animation:none}.wp{animation:none;stroke-dasharray:none;stroke:rgba(56,189,248,.6);stroke-width:2}}
 .wm .wml{display:block;height:min(160px,26vw);width:auto;margin:0 auto 6px}
-</style></head><body>
+</style></head><body data-ax-page="portal">
 <a class="out" href="index.html" id="out">تسجيل الخروج · Logout</a>
 <main id="stage">
 <h1 class="wm" id="wm"><img class="wml" src="assets/brand/abadx-logo.png" alt="Abad X"><small>اختر بوابتك · Choose your portal</small></h1>
@@ -65,4 +65,4 @@ if(c.t-top<4){const my=wy+(c.t-wy)*.55;d=`M${wx},${wy} C${wx},${my} ${cx},${my} 
 else{const gx=Math.max(4,c.l-11+(i%3)*3),ry=top-20,cy=c.t+34;d=`M${wx},${wy} C${wx},${(wy+ry)/2} ${gx},${(wy+ry)/2} ${gx},${ry} L${gx},${cy} L${c.l},${cy}`}
 return `<path class="wb" d="${d}"/><path class="wp" d="${d}" pathLength="1000" filter="url(#gl)" style="animation-delay:${.9+i*.6}s"/>`}).join('')}
 draw();new ResizeObserver(draw).observe(st);addEventListener('resize',draw);document.fonts&&document.fonts.ready.then(draw);
-</script><script src="assets/i18n.js"></script></body></html>
+</script><script src="assets/topnav.js"></script><script src="assets/i18n.js"></script></body></html>
