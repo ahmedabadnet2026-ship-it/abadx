@@ -121,6 +121,7 @@ body.exam-fs-lock{overflow:hidden;touch-action:none}
 .exam-stage.fs-css .drawer-close{display:inline-flex}
 
 </style>
+<link rel="stylesheet" href="assets/theme-bw.css?v=bw4" data-theme="bw">
 </head>
 <body data-ax-page="labs">
 <main class="wrap">
@@ -160,6 +161,15 @@ body.exam-fs-lock{overflow:hidden;touch-action:none}
           </div>
           <p><span class="i18n-ar">هدف DC-1 على شبكة اللاب المعزولة (هجوم من Kali فقط — مفيش كونسول للهدف). اهجُم من Kali نحو <b dir="ltr">172.16.10.40</b>. أسئلة CTF بأعلام لكل مرحلة؛ الإجابات عند المدرب فقط.</span><span class="i18n-en">DC-1 target on the isolated lab network (attack from Kali only — no target console). Attack toward <b>172.16.10.40</b>. CTF-style flags per stage; answers instructor-only.</span></p>
           <a class="enter" href="#" id="openDc1Lab"><span class="i18n-ar">دخول المختبر</span><span class="i18n-en">Enter lab</span></a>
+        </article>
+        <article class="lab">
+          <h4>DC-6 <span class="en">VulnHub WordPress → root</span></h4>
+          <div class="meta">
+            <span class="badge">Kali attack</span><span class="badge">LAB-DMZ</span>
+            <span class="badge">172.16.10.41</span><span class="badge">WAP · HNP · HNA · AM</span>
+          </div>
+          <p><span class="i18n-ar">هدف DC-6 على شبكة اللاب المعزولة (هجوم من Kali فقط — مفيش كونسول للهدف). اهجُم من Kali نحو <b dir="ltr">172.16.10.41</b>. سلسلة WordPress → استغلال plugin → تنقّل بـ sudo → root. أسئلة CTF؛ الإجابات عند المدرب فقط.</span><span class="i18n-en">DC-6 target on the isolated lab network (attack from Kali only — no target console). Attack toward <b>172.16.10.41</b>. Chain: WordPress → plugin RCE → sudo lateral moves → root. CTF-style questions; answers instructor-only.</span></p>
+          <a class="enter" href="#" id="openDc6Lab"><span class="i18n-ar">دخول المختبر</span><span class="i18n-en">Enter lab</span></a>
         </article>
       </div>
     </div>
@@ -252,6 +262,49 @@ body.exam-fs-lock{overflow:hidden;touch-action:none}
         </div>
       </div>
     </div>
+    <!-- DC-6 detail -->
+    <div class="detail" id="dc6LabDetail">
+      <div class="closebar"><button type="button" id="closeDc6Lab"><span class="i18n-ar">إغلاق</span><span class="i18n-en">Close</span></button></div>
+
+      <div class="exam-stage" id="dc6Stage">
+        <div class="stage-toolbar">
+          <div class="left">
+            <button type="button" class="fs-btn" id="dc6EnterFs" title="Fullscreen">
+              ⛶ <span class="i18n-ar">ملء الشاشة</span><span class="i18n-en">Fullscreen</span>
+            </button>
+            <button type="button" class="qs-toggle" id="dc6ToggleQs" aria-expanded="false">
+              📋 <span class="i18n-ar">الأسئلة</span><span class="i18n-en">Questions</span>
+            </button>
+          </div>
+          <div class="right">
+            <button type="button" class="fs-exit" id="dc6ExitFs">
+              ✕ <span class="i18n-ar">خروج من ملء الشاشة</span><span class="i18n-en">Exit fullscreen</span>
+            </button>
+          </div>
+        </div>
+
+        <div class="stage-body">
+          <section class="card stage-kali" aria-labelledby="dc6desk">
+            <h3 id="dc6desk"><span class="i18n-ar">محطة Kali (هجوم على DC-6)</span><span class="i18n-en">Kali attack → DC-6</span> <span class="en">172.16.10.41</span></h3>
+            <p class="hint"><span class="i18n-ar">هجوم من Kali فقط على DC-6 في الـ DMZ (<b dir="ltr">172.16.10.41</b>). مفيش كونسول للهدف — استطلاع واستغلال من هنا.</span><span class="i18n-en">Attack DC-6 on the DMZ (<b>172.16.10.41</b>) from Kali only. No target console — recon and exploit from here.</span></p>
+            <div class="frame-wrap"><iframe id="guacDc6" title="Kali terminal for DC-6" loading="lazy" referrerpolicy="no-referrer" allow="clipboard-read; clipboard-write; fullscreen"></iframe></div>
+            <div class="actions">
+              <a class="btn" id="openGuacDc6" href="#" target="_blank" rel="noopener">Open Kali in new tab</a>
+            </div>
+            <p class="status" id="dc6Status">DC-6 · target 172.16.10.41 · attack from lab-kali</p>
+          </section>
+
+          <section class="card stage-qs" id="dc6QsPanel" aria-labelledby="dc6practice">
+            <button type="button" class="btn sec drawer-close" id="dc6CloseQsDrawer">
+              ← <span class="i18n-ar">رجوع لكالي</span><span class="i18n-en">Back to Kali</span>
+            </button>
+            <h3 id="dc6practice"><span class="i18n-ar">أسئلة التدريب</span><span class="i18n-en">Practice questions</span> <span class="en">DC-6 · no answers</span></h3>
+            <p class="hint"><span class="i18n-ar">١٠ أسئلة أصلية. الإجابات عند المدرب فقط — ليست spoilers منشورة.</span><span class="i18n-en">10 original questions. Instructor-only answers — not published spoilers.</span></p>
+            <div class="qs" id="dc6Qs"></div>
+          </section>
+        </div>
+      </div>
+    </div>
 
   </section>
 </main>
@@ -279,6 +332,12 @@ async function loadConfig(){
   if(o2) o2.href=openUrl;
   const st2=document.getElementById('dc1Status');
   if(st2) st2.textContent='DC-1 · 172.16.10.40 · Kali /lab/term';
+  const g3=document.getElementById('guacDc6');
+  const o3=document.getElementById('openGuacDc6');
+  if(g3){ g3.dataset.src=openUrl; if(document.getElementById('dc6LabDetail')?.classList.contains('open')) g3.src=openUrl; }
+  if(o3) o3.href=openUrl;
+  const st3=document.getElementById('dc6Status');
+  if(st3) st3.textContent='DC-6 · 172.16.10.41 · Kali /lab/term';
 }
 async function loadQuestions(){
   const box=document.getElementById('qs');
@@ -329,9 +388,37 @@ if(location.search.includes('open=dc1')||location.search.includes('dc1=1')){
   dc1Detail.scrollIntoView({behavior:'smooth'});
 }
 
+async function loadDc6Questions(){
+  const box=document.getElementById('dc6Qs');
+  if(!box) return;
+  try{
+    const r=await fetch('assets/lab/dc6-questions.json',{cache:'no-store'});
+    const qs=await r.json();
+    box.innerHTML=qs.map(q=>`<article class="q"><h5>Q${q.id} — ${q.title}</h5>
+      <div class="meta"><span class="badge">${q.domain||''}</span><span class="badge">${q.machine||''}</span>${q.flag?`<span class="badge">🚩 ${q.flag}</span>`:''}</div>
+      <p class="ar">${q.ar||''}</p><p class="enline">${q.en||''}</p></article>`).join('');
+  }catch(e){box.innerHTML='<p class="hint">Could not load dc6-questions.json</p>';}
+}
+const dc6Detail=document.getElementById('dc6LabDetail');
+document.getElementById('openDc6Lab')?.addEventListener('click',e=>{
+  e.preventDefault();
+  dc6Detail.classList.add('open');
+  const f=document.getElementById('guacDc6');
+  if(f.dataset.src) f.src=f.dataset.src;
+  dc6Detail.scrollIntoView({behavior:'smooth'});
+});
+document.getElementById('closeDc6Lab')?.addEventListener('click',()=>dc6Detail.classList.remove('open'));
+loadDc6Questions();
+if(location.search.includes('open=dc6')||location.search.includes('dc6=1')){
+  dc6Detail.classList.add('open');
+  const f=document.getElementById('guacDc6');
+  if(f&&f.dataset.src) f.src=f.dataset.src;
+  dc6Detail.scrollIntoView({behavior:'smooth'});
+}
+
 (async()=>{
   await loadConfig();
-  if(location.search.includes('open') && !location.search.includes('open=dc1')){
+  if(location.search.includes('open') && !location.search.includes('open=dc1') && !location.search.includes('open=dc6')){
     detail.classList.add('open');
     const f=document.getElementById('guac');
     if(f.dataset.src) f.src=f.dataset.src;
@@ -467,6 +554,7 @@ if(location.search.includes('open=dc1')||location.search.includes('dc1=1')){
     });
   }
   bindFs('dc1Stage','dc1EnterFs','dc1ExitFs','dc1ToggleQs','dc1CloseQsDrawer');
+  bindFs('dc6Stage','dc6EnterFs','dc6ExitFs','dc6ToggleQs','dc6CloseQsDrawer');
 })();
 </script>
 

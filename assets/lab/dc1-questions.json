@@ -24,7 +24,7 @@
     "ar": "خُد foothold أولي على تطبيق الويب. أول flag فيه تلميح إن الإعدادات ممكن تساعدك. امسك Flag 1.",
     "machine": "lab-dc1",
     "domain": "WAP / HNP",
-    "flag": "🚩 Flag 1 — instructor-only"
+    "flag": "Flag 1 — instructor-only"
   },
   {
     "id": 4,
@@ -33,7 +33,7 @@
     "ar": "اتبع تلميح Flag 1 لإعدادات الـ CMS. Flag 2 بيشاور على credentials وبيحذّر من brute force. امسك Flag 2 وبيانات الـ DB.",
     "machine": "lab-dc1",
     "domain": "WAP / HNP",
-    "flag": "🚩 Flag 2 — instructor-only"
+    "flag": "Flag 2 — instructor-only"
   },
   {
     "id": 5,
@@ -42,7 +42,7 @@
     "ar": "استخدم الـ credentials للوصول لقاعدة بيانات الـ CMS. جواها Flag 3 بيلمّح لتفعيل وصول أكبر (أدمن جديد). امسك Flag 3.",
     "machine": "lab-dc1",
     "domain": "WAP / HNP",
-    "flag": "🚩 Flag 3 — instructor-only"
+    "flag": "Flag 3 — instructor-only"
   },
   {
     "id": 6,
@@ -51,7 +51,7 @@
     "ar": "بعد ما ترفع صلاحيتك لمستخدم عادي على الجهاز، اقرأ flag المستخدم من مجلد الـ home بتاعه. إيه الـ user flag؟",
     "machine": "lab-dc1",
     "domain": "HNP",
-    "flag": "🚩 user flag — instructor-only"
+    "flag": "user flag — instructor-only"
   },
   {
     "id": 7,

@@ -36,6 +36,12 @@
           <p class="i18n-ar">هدف VulnHub على 172.16.10.40 — هجوم من Kali</p>
           <p class="i18n-en en" style="direction:ltr;text-align:left">VulnHub target at 172.16.10.40 — attack from Kali</p>
         </a>
+        <a href="labs.html?open=dc6">
+          <div class="path">INE → VulnHub Labs → DC-6</div>
+          <strong>DC-6</strong>
+          <p class="i18n-ar">هدف VulnHub على 172.16.10.41 — WordPress → root من Kali</p>
+          <p class="i18n-en en" style="direction:ltr;text-align:left">VulnHub target at 172.16.10.41 — WordPress → root from Kali</p>
+        </a>
         <a href="labs.html"><span class="i18n-ar">كل المختبرات</span><span class="i18n-en">All labs</span></a>
       </div>
     </div>`;
@@ -71,6 +77,7 @@
       <a class="${page==='labs'?'active':''}" href="labs.html">${I.labs} <span class="i18n-ar">المختبر</span><span class="i18n-en">Labs</span></a>
       <a class="ax-msub" href="labs.html?open=1">INE → eJPT → Exam Lab</a>
       <a class="ax-msub" href="labs.html?open=dc1">INE → VulnHub → DC-1</a>
+      <a class="ax-msub" href="labs.html?open=dc6">INE → VulnHub → DC-6</a>
       <a class="${page==='library'?'active':''}" href="library.html">${I.library} <span class="i18n-ar">المكتبة</span><span class="i18n-en">Library</span></a>
       <a class="${page.match(/self-learning|room/)?'active':''}" href="self-learning.html">${I.self} <span class="i18n-ar">تعلّم ذاتي</span><span class="i18n-en">Self-Learning</span></a>
       <div class="ax-mactions">
@@ -91,7 +98,10 @@
     langBtn.textContent = l === 'en' ? 'AR' : 'EN';
   }
   syncLangBtn();
+  document.addEventListener('abadx:langchange', syncLangBtn);
   langBtn.addEventListener('click', () => {
+    // prefer the shared i18n engine so dictionary strings translate too
+    if (window.AbadI18n && typeof window.AbadI18n.toggle === 'function') { window.AbadI18n.toggle(); syncLangBtn(); return; }
     const cur = document.documentElement.getAttribute('data-lang') || 'ar';
     const next = cur === 'en' ? 'ar' : 'en';
     try { localStorage.setItem('abadx-lang', next); } catch(e){}

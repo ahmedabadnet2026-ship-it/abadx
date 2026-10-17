@@ -1,0 +1,92 @@
+[
+  {
+    "id": 1,
+    "title": "Recon — find the target",
+    "en": "From Kali (10.10.0.10), sweep 172.16.10.0/24. Identify the new VulnHub host (DC-6) and its IP. (No flag — recon step.)",
+    "ar": "من Kali (10.10.0.10)، افحص 172.16.10.0/24. حدّد جهاز VulnHub الجديد (DC-6) و IP بتاعه. (مفيش flag — خطوة استطلاع.)",
+    "machine": "lab-kali → lab-dc6",
+    "domain": "AM / HNA",
+    "flag": "— (no flag)"
+  },
+  {
+    "id": 2,
+    "title": "Service & CMS fingerprint",
+    "en": "Scan the DC-6 IP. Which TCP ports are open, what CMS + major version runs on the web port, and what virtual hostname does it redirect to? (No flag — enumeration.)",
+    "ar": "اعمل scan لـ DC-6. إيه البورتات المفتوحة؟ وإيه الـ CMS وإصداره على بورت الويب؟ وإيه الـ vhost اللي بيحوّل ليه؟ (مفيش flag — تعداد.)",
+    "machine": "lab-dc6",
+    "domain": "WAP / HNA",
+    "flag": "— (no flag)"
+  },
+  {
+    "id": 3,
+    "title": "vhost — hosts file",
+    "en": "The site redirects to a name, not an IP. Add that name to your /etc/hosts on Kali so the site loads. What single line did you add? (No flag — setup.)",
+    "ar": "الموقع بيحوّل لاسم مش IP. ضيف الاسم ده في /etc/hosts على Kali علشان الموقع يفتح. إيه السطر اللي ضفته؟ (مفيش flag — إعداد.)",
+    "machine": "lab-kali",
+    "domain": "HNA",
+    "flag": "— (no flag)"
+  },
+  {
+    "id": 4,
+    "title": "Enumerate WordPress users",
+    "en": "Enumerate the WordPress users. List every username you recover. (No flag — enumeration.)",
+    "ar": "اعمل تعداد لمستخدمي WordPress. اكتب كل username لقيته. (مفيش flag — تعداد.)",
+    "machine": "lab-dc6",
+    "domain": "WAP / HNA",
+    "flag": "— (no flag)"
+  },
+  {
+    "id": 5,
+    "title": "Password attack (use the clue)",
+    "en": "Use the author's clue to shrink the wordlist (a rockyou subset), then brute-force the login. Which user's password do you recover, and which WordPress plugin does that user have access to?",
+    "ar": "استخدم تلميح صاحب اللاب لتصغير قائمة الكلمات (جزء من rockyou)، وبعدين اعمل brute-force. أنهي user كسرت باسوورده؟ وأنهي plugin متاح ليه؟",
+    "machine": "lab-dc6",
+    "domain": "WAP / HNP",
+    "flag": "checkpoint — instructor-only"
+  },
+  {
+    "id": 6,
+    "title": "Foothold — plugin RCE",
+    "en": "Abuse the vulnerable plugin to run commands and get a reverse shell. As which local (web) user does your shell run? (No flag — technique.)",
+    "ar": "استغل الـ plugin المصاب لتنفيذ أوامر واحصل على reverse shell. شِلك بيشتغل بأنهي user (ويب) محلي؟ (مفيش flag — تقنية.)",
+    "machine": "lab-dc6",
+    "domain": "WAP / HNP",
+    "flag": "— (no flag)"
+  },
+  {
+    "id": 7,
+    "title": "Loot — notes to the next user",
+    "en": "From your shell, hunt the web user's home and files for left-behind notes. Which SSH username + password combination do you find for the next hop?",
+    "ar": "من الشِل، فتّش home وملفات مستخدم الويب عن ملاحظات متسابة. أنهي username + password لـ SSH لقيته للخطوة اللي بعدها؟",
+    "machine": "lab-dc6",
+    "domain": "HNP",
+    "flag": "checkpoint — instructor-only"
+  },
+  {
+    "id": 8,
+    "title": "Lateral move — sudo chain",
+    "en": "SSH in as that user. Inspect sudo rights (sudo -l). Which script can you run as another user, and which user does that make you after you abuse it?",
+    "ar": "ادخل SSH بالمستخدم ده. شوف صلاحيات sudo (sudo -l). أنهي سكربت تقدر تشغّله كمستخدم تاني، وبتبقى أنهي مستخدم بعد ما تستغله؟",
+    "machine": "lab-dc6",
+    "domain": "HNP / AM",
+    "flag": "checkpoint — instructor-only"
+  },
+  {
+    "id": 9,
+    "title": "Privesc to root",
+    "en": "As the second user, check sudo rights again. Which binary can you run as root without a password, and how do you turn it into a root shell? (No flag — technique.)",
+    "ar": "كمستخدم التاني، شوف صلاحيات sudo تاني. أنهي binary تقدر تشغّله كـ root من غير باسوورد، وإزاي تحوّله لـ root shell؟ (مفيش flag — تقنية.)",
+    "machine": "lab-dc6",
+    "domain": "HNP",
+    "flag": "— (no flag)"
+  },
+  {
+    "id": 10,
+    "title": "Root flag — final",
+    "en": "Escalate to root and read the one and only flag in root's home directory. This is the ultimate goal. What is the flag, and what is its full path?",
+    "ar": "ارفع صلاحيتك لـ root واقرأ الـ flag الوحيد في home بتاع root. ده الهدف النهائي. إيه الـ flag وإيه مساره الكامل؟",
+    "machine": "lab-dc6",
+    "domain": "HNP / AM",
+    "flag": "root flag — instructor-only"
+  }
+]
