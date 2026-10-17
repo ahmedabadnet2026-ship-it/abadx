@@ -1,104 +1,473 @@
-<!doctype html><html lang="ar" dir="rtl"><head><meta charset="utf-8"><script>(function(){try{var l=localStorage.getItem("abadx-lang")==="en"?"en":"ar";var h=document.documentElement;h.lang=l;h.dir=l==="en"?"ltr":"rtl";h.setAttribute("data-lang",l)}catch(e){}})()</script><link rel="stylesheet" href="assets/i18n.css"><meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Abad X | دخول آمن</title><link rel="icon" href="assets/brand/favicon-32.png" sizes="32x32" type="image/png"><link rel="apple-touch-icon" href="assets/brand/favicon-180.png">
-<link rel="preconnect" href="https://fonts.googleapis.com"><link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="assets/style.css">
+<!doctype html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="utf-8">
+<script>(function(){try{var l=localStorage.getItem("abadx-lang")==="en"?"en":"ar";var h=document.documentElement;h.lang=l;h.dir=l==="en"?"ltr":"rtl";h.setAttribute("data-lang",l)}catch(e){}})()</script>
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Abad X | اتعلّم تقنية المعلومات عملياً · Hands-on IT training</title>
+<meta name="description" content="اتعلّم تقنية المعلومات عملياً على مختبرات حقيقية — Hands-on IT training on real labs.">
+<link rel="icon" href="assets/brand/favicon-32.png" sizes="32x32" type="image/png"><link rel="apple-touch-icon" href="assets/brand/favicon-180.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/i18n.css">
+<link rel="stylesheet" href="assets/topnav.css?v=REV">
 <style>
-:root{--mono:'JetBrains Mono','Fira Code',ui-monospace,'DejaVu Sans Mono',monospace;--b:#38bdf8;--b2:#1d6fff}
-html,body{height:100%}body{margin:0;background:#000;color:#cfe8ff;display:grid;place-items:center;overflow-x:hidden}
-#rain{position:fixed;inset:0;z-index:0;opacity:.45}
-.crt{position:fixed;inset:0;z-index:2;pointer-events:none;background:repeating-linear-gradient(0deg,rgba(0,0,0,.28) 0 1px,transparent 1px 3px),radial-gradient(ellipse at center,transparent 55%,rgba(0,0,0,.85))}
-.wrap{position:relative;z-index:3;width:min(560px,94vw);padding:28px 0}
-.top{display:flex;align-items:center;justify-content:space-between;gap:12px;margin-bottom:14px;direction:ltr}
-.top img{height:120px;filter:drop-shadow(0 0 10px rgba(56,189,248,.5))}
-.glitch{position:relative;font-family:var(--mono);font-weight:700;font-size:clamp(2rem,6vw,2.8rem);color:#e6f4ff;letter-spacing:2px;margin:0}
-.glitch b{color:var(--b);text-shadow:0 0 18px rgba(56,189,248,.8)}
-.glitch:before,.glitch:after{content:attr(data-t);position:absolute;inset:0;overflow:hidden}
-.glitch:before{color:#60a5fa;transform:translate(2px,0);clip-path:inset(0 0 60% 0);animation:g1 3.2s infinite steps(1)}
-.glitch:after{color:#1e40af;transform:translate(-2px,0);clip-path:inset(55% 0 0 0);animation:g2 2.7s infinite steps(1)}
-@keyframes g1{0%,92%{transform:none;opacity:0}93%{transform:translate(3px,-1px);opacity:1}96%{transform:translate(-3px,1px)}}
-@keyframes g2{0%,88%{transform:none;opacity:0}89%{transform:translate(-4px,1px);opacity:1}94%{transform:translate(2px,0)}}
-.eye{width:44px;height:44px;color:var(--b);filter:drop-shadow(0 0 8px rgba(56,189,248,.7))}
-.term{background:rgba(2,6,14,.86);border:1px solid #12305a;border-radius:12px;box-shadow:0 0 0 1px rgba(56,189,248,.06),0 0 50px rgba(29,111,255,.18);overflow:hidden}
-.bar{display:flex;align-items:center;gap:7px;padding:9px 12px;background:#050c1a;border-bottom:1px solid #12305a;direction:ltr;font-family:var(--mono);font-size:.78rem;color:#6b8bb8}
-.bar i{width:11px;height:11px;border-radius:50%;background:#16325c}.bar i:first-child{background:#1d6fff}.bar span{margin-left:auto}
-.body{padding:18px 20px 22px;font-family:var(--mono);font-size:.95rem;line-height:1.75}
-#boot{direction:ltr;text-align:left;margin:0 0 10px;min-height:9.2em;color:#8fb8e8;white-space:pre-wrap}
-#boot .w{color:#93c5fd}#boot .r{color:#7dd3fc;font-weight:700}
-.ar{font-family:Cairo,sans-serif;direction:rtl;text-align:right;color:#a9c3e6;font-size:.92rem;margin:0 0 12px}
-form{direction:ltr;text-align:left}
-.ln{display:flex;align-items:center;gap:10px;border-bottom:1px dashed #163056;padding:6px 0}
-.ln label{color:var(--b);white-space:nowrap;min-width:92px}.ln label small{display:block;font-family:Cairo,sans-serif;color:#6f8fbd;font-size:.72rem;line-height:1.1}
-.ln input{flex:1;min-width:0;background:transparent;border:0;color:#e6f4ff;font:inherit;caret-color:var(--b);padding:6px 2px;outline:none}
-.ln:focus-within{border-bottom-color:var(--b);box-shadow:0 1px 0 0 var(--b)}
-.ln[data-bad=true]{border-bottom-color:#ef4444}
-.tog{background:#081a33;border:1px solid #1b3c6c;color:var(--b);font:inherit;font-size:.75rem;border-radius:6px;padding:3px 8px;cursor:pointer}
-.err{font-family:Cairo,sans-serif;direction:rtl;text-align:right;color:#fca5a5;font-size:.82rem;min-height:1.2em}
-.opts{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:8px;margin:12px 0 16px;font-size:.85rem}
-.ck{display:flex;align-items:center;gap:8px;cursor:pointer;color:#a9c3e6}
-.ck input{appearance:none;-webkit-appearance:none;width:18px;height:18px;margin:0;border:1px solid #2a4f86;border-radius:4px;background:#030914;display:grid;place-items:center;cursor:pointer}
-.ck input:checked{background:#0b2a55;border-color:var(--b);box-shadow:0 0 8px rgba(56,189,248,.5)}.ck input:checked:after{content:"✓";color:var(--b);font-size:13px;line-height:1}
-.go{width:100%;font-family:var(--mono);font-weight:700;letter-spacing:2px;background:transparent;color:var(--b);border:1px solid var(--b);border-radius:8px;padding:11px;cursor:pointer;transition:background .2s,box-shadow .2s,color .2s}
-.go:hover,.go:focus-visible{background:var(--b);color:#00121f;box-shadow:0 0 22px rgba(56,189,248,.6)}
-.cur{display:inline-block;width:.6em;height:1.1em;background:var(--b);vertical-align:-2px;animation:blink 1s steps(1) infinite}@keyframes blink{50%{opacity:0}}
-#status{position:fixed;inset:0;z-index:5;display:none;place-items:center;background:rgba(0,0,0,.6);pointer-events:none}
-#status.on{display:grid}#status.static div{animation:none!important}#status div{font-family:var(--mono);font-weight:700;font-size:clamp(1.6rem,7vw,3.4rem);letter-spacing:6px;padding:14px 26px;border:2px solid;border-radius:8px;background:rgba(2,4,10,.92);animation:pop .5s ease-out}
-#status .ok{color:var(--b);border-color:var(--b);text-shadow:0 0 22px var(--b);box-shadow:0 0 40px rgba(56,189,248,.4)}
-#status .no{color:#f87171;border-color:#f87171;text-shadow:0 0 22px #ef4444;animation:pop .4s,shake .4s .4s}
-@keyframes pop{from{transform:scale(1.25)}}@keyframes shake{25%{transform:translateX(-8px)}75%{transform:translateX(8px)}}
-.note{font-family:Cairo,sans-serif;text-align:center;color:#5f7aa6;font-size:.78rem;margin-top:12px}
-.sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0)}
-@media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}.glitch:before,.glitch:after{display:none}}
+@font-face{font-family:"CairoLocal";src:url("assets/Cairo.ttf") format("truetype");font-weight:200 1000;font-display:swap}
+:root{
+  --bg:#F5F5F2; --paper:#FBFBF9; --ink:#0A0A0A; --ink-2:#3A3A38; --muted:#6E6E6A;
+  --line:#DCDCD7; --line-2:#C9C9C3; --gold:#F5BD2D;
+  --term:#0B0B0C; --term-line:#232326;
+  --ar:"Cairo","CairoLocal",system-ui,sans-serif;
+  --mono:"JetBrains Mono","IBM Plex Mono",ui-monospace,SFMono-Regular,Menlo,monospace;
+  --max:1240px;
+}
+#axHero .mono{font-family:var(--mono);text-transform:uppercase;letter-spacing:.14em;font-size:11px;line-height:1.4}
 
-@media (max-width:640px),(pointer:coarse){.ck{display:inline-flex;align-items:center;gap:8px;min-height:44px;cursor:pointer}.ck input{width:22px;height:22px}#forgot{display:inline-flex;align-items:center;min-height:44px}}
-</style><link rel="stylesheet" href="assets/theme-bw.css?v=accbd1d" data-theme="bw">
-</head><body>
-<canvas id="rain" aria-hidden="true"></canvas><div class="crt" aria-hidden="true"></div>
-<main class="wrap">
-<div class="top"><h1 class="glitch" data-t="Abad X">Abad <b>X</b></h1>
-<svg class="eye" viewBox="0 0 48 48" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2"><path d="M10 40c0-12 6-26 14-30 8 4 14 18 14 30"/><path d="M4 44c2-16 9-30 20-36 11 6 18 20 20 36"/><path d="M17 27c2-3 4.5-4 7-4s5 1 7 4c-2 3-4.5 4-7 4s-5-1-7-4z"/><circle cx="24" cy="27" r="1.8" fill="currentColor"/></svg>
-<img src="assets/brand/abadx-logo.png" alt="شعار Abad X" data-i18n-alt="login.logo"></div>
-<section class="term" aria-labelledby="tt">
-<div class="bar" aria-hidden="true"><i></i><i></i><i></i><span>abadx@secure-shell: ~</span></div>
-<div class="body">
-<h2 id="tt" class="sr" data-i18n="login.heading">تسجيل الدخول إلى Abad X</h2>
-<pre id="boot" aria-hidden="true"></pre>
-<p class="ar" data-i18n="login.restricted">🔒 منطقة مقيّدة — سجّل الدخول للوصول إلى المعامل التطبيقية.</p>
-<form id="f" novalidate>
-<div class="ln" id="l1"><label for="user">login:<small data-i18n="login.user">المستخدم / البريد</small></label><input id="user" autocomplete="username" spellcheck="false" aria-describedby="ue"><span class="cur" id="c1" aria-hidden="true"></span></div><div class="err" id="ue" aria-live="polite"></div>
-<div class="ln" id="l2"><label for="pw">password:<small data-i18n="login.pass">كلمة المرور</small></label><input id="pw" type="password" autocomplete="current-password" aria-describedby="pe"><button type="button" class="tog" id="tog" aria-pressed="false" aria-controls="pw">show</button></div><div class="err" id="pe" aria-live="polite"></div>
-<div class="opts"><label class="ck"><input type="checkbox" id="rem"><span style="font-family:Cairo" data-i18n="login.remember">تذكّرني</span></label><a href="#" id="forgot" style="font-family:Cairo" data-i18n="login.forgot">نسيت كلمة المرور؟</a></div>
-<button class="go" type="submit">&gt; AUTHENTICATE_</button>
-<p class="err" id="msg" role="alert" style="text-align:center;margin-top:10px"></p>
-</form></div></section>
-<p class="note" data-i18n="login.note">نسخة تجريبية — الدخول للعرض فقط دون تحقق فعلي من الحساب</p>
-</main>
-<div id="status" aria-hidden="true"></div>
+
+#axHero .wrap{max-width:var(--max);margin:0 auto;width:100%}
+
+#axHero{position:relative;flex:1;overflow:hidden;border-bottom:1px solid var(--line)}
+#axHero #net{position:absolute;inset:0;width:100%;height:100%;z-index:0;pointer-events:none}
+#axHero .wrap{position:relative;z-index:2;display:grid;grid-template-columns:1.3fr .9fr;gap:48px;align-items:center;padding:72px 24px 80px;min-height:calc(100vh - 73px)}
+#axHero .copy{max-width:700px}
+#axHero .logo{position:relative;width:86px;height:99px;margin-bottom:30px;opacity:0}
+#axHero .logo img{width:100%;height:100%;object-fit:contain;display:block}
+#axHero .logo svg{position:absolute;inset:-10px;width:calc(100% + 20px);height:calc(100% + 20px);overflow:visible}
+#axHero .logo svg path{fill:none;stroke:var(--ink);stroke-width:1.6;stroke-linecap:square;stroke-dasharray:44;stroke-dashoffset:44}
+#axHero .logo svg path.g{stroke:var(--gold);stroke-width:2}
+#axHero .eyebrow{display:flex;align-items:center;gap:10px;color:var(--muted);margin-bottom:14px;opacity:0}
+#axHero .eyebrow i{width:6px;height:6px;border-radius:50%;background:var(--gold);display:inline-block}
+#axHero h1{font-family:var(--ar);font-weight:800;font-size:clamp(32px,4.1vw,56px);line-height:1.28;margin:0 0 14px;letter-spacing:0;min-height:1.25em}
+#axHero .sub{font-family:var(--ar);font-weight:600;font-size:clamp(18px,1.9vw,25px);line-height:1.5;color:var(--ink-2);margin:0 0 10px;min-height:1.5em}
+#axHero .en{font-family:var(--mono);font-size:clamp(13px,1.25vw,16px);color:var(--muted);direction:ltr;text-align:right;margin:0 0 34px;font-weight:500;min-height:1.6em}
+#axHero .ghost{color:transparent;user-select:none}
+#axHero .caret{display:inline-block;width:.09em;min-width:3px;height:1em;background:var(--ink);vertical-align:-.12em;margin-inline:2px;visibility:hidden}
+#axHero .caret.on{visibility:visible;animation:blink 1s steps(1) infinite}
+#axHero .en .caret{background:var(--gold);width:.55em;height:1.1em;vertical-align:-.2em}
+@keyframes blink{50%{opacity:0}}
+#axHero .ctas{display:flex;gap:12px;flex-wrap:wrap;align-items:center;opacity:0}
+#axHero .btn{display:inline-flex;align-items:center;gap:10px;height:50px;padding:0 26px;border-radius:999px;font-weight:700;font-size:16px;border:1.5px solid var(--ink);transition:transform .15s,background .15s}
+#axHero .btn.primary{background:var(--ink);color:#fff}
+#axHero .btn.primary:hover{transform:translateY(-1px)}
+#axHero .btn.primary .arr{display:inline-block;transition:transform .2s;color:var(--gold)}
+#axHero .btn.primary:hover .arr{transform:translateX(-4px)}
+#axHero .btn.ghostbtn{background:transparent;color:var(--ink)}
+#axHero .btn.ghostbtn:hover{background:#fff}
+#axHero .path{margin-top:30px;display:flex;flex-wrap:wrap;row-gap:8px;align-items:center;gap:10px;color:var(--muted);direction:ltr;justify-content:flex-end;opacity:0}
+#axHero .path .n{display:inline-flex;align-items:center;gap:6px}
+#axHero .path .n::before{content:"";width:7px;height:7px;border-radius:50%;border:1.5px solid var(--ink)}
+#axHero .path .n.g::before{background:var(--gold);border-color:var(--gold)}
+#axHero .path .sep{width:28px;height:1px;background:var(--line-2)}
+
+#axHero .term{background:var(--term);color:#D9D9D4;border-radius:14px;border:1px solid var(--term-line);box-shadow:0 30px 60px -30px rgba(0,0,0,.45),0 0 0 6px rgba(10,10,10,.04);overflow:hidden;direction:ltr;text-align:left;font-family:var(--mono);font-size:12px;line-height:1.62;opacity:0}
+#axHero .term .bar{display:flex;align-items:center;gap:7px;padding:10px 14px;border-bottom:1px solid var(--term-line);color:#77776f;font-size:10.5px;letter-spacing:.12em;text-transform:uppercase}
+#axHero .term .bar i{width:9px;height:9px;border-radius:50%;background:#2c2c30;display:inline-block}
+#axHero .term .bar i:first-child{background:var(--gold)}
+#axHero .term .bar span{margin-left:8px}
+#axHero .term .bar em{margin-left:auto;font-style:normal;color:#55554f}
+#axHero .term .tabs{display:flex;gap:0;border-bottom:1px solid var(--term-line);font-size:10px;letter-spacing:.14em;text-transform:uppercase}
+#axHero .term .tabs span{flex:1;text-align:center;padding:7px 4px;color:#5f5f59;border-right:1px solid var(--term-line);transition:color .25s,background .25s}
+#axHero .term .tabs span:last-child{border-right:0}
+#axHero .term .tabs span.on{color:#fff;background:#141416;box-shadow:inset 0 -2px 0 var(--gold)}
+#axHero .term .h{color:#c9c9c2}
+#axHero .term pre{margin:0;padding:16px 18px 20px;min-height:384px;white-space:pre-wrap;word-break:break-all;font-family:inherit}
+#axHero .term .p{color:#8a8a82}
+#axHero .term .u{color:#fff}
+#axHero .term .o{color:#9d9d95}
+#axHero .term .ok{color:#cfe8c4}
+#axHero .term .tc{display:inline-block;width:.6em;height:1.15em;background:#D9D9D4;vertical-align:-.25em;animation:blink 1s steps(1) infinite}
+
+@media (max-width:900px){
+  #axHero .wrap{grid-template-columns:1fr;gap:34px;padding:40px 20px 48px;min-height:0}
+  #axHero .logo{width:62px;height:71px;margin-bottom:22px}
+  #axHero h1{font-size:clamp(30px,8.6vw,40px)}
+  #axHero .sub{font-size:17px}
+  #axHero .en{font-size:12.5px;margin-bottom:24px}
+  #axHero .btn{height:48px;padding:0 14px;font-size:14.5px;white-space:nowrap}
+  #axHero .ctas .btn{flex:1;justify-content:center}
+  #axHero .path{justify-content:flex-start;font-size:9.5px;gap:7px;letter-spacing:.1em}
+  #axHero .path .sep{width:16px}
+  #axHero .term{font-size:11px}
+  #axHero .term .bar em{font-size:9.5px}
+  #axHero .term pre{min-height:360px;padding:14px}
+  #axHero .term .tabs{font-size:9px}
+}
+@media (prefers-reduced-motion:reduce){.caret.on,.term .tc{animation:none}}
+
+body{margin:0;background:var(--bg);color:var(--ink);font-family:var(--ar);-webkit-font-smoothing:antialiased;min-height:100vh;display:flex;flex-direction:column}
+#axHero a{color:inherit;text-decoration:none}
+#axHero .btn.primary{color:#fff}
+#axHero .copy{text-align:right}
+#axHero,#axHero *,#axHero *::before,#axHero *::after{box-sizing:border-box}
+#axHero .wrap>*{min-width:0}
+#axHero .term .bar span{white-space:nowrap;overflow:hidden;text-overflow:ellipsis;min-width:0}#axHero .term .bar em{white-space:nowrap;flex:none}
+@media (max-width:900px){#axHero .term .bar{letter-spacing:.06em}}
+@media (max-width:900px){#axHero .wrap{grid-template-columns:minmax(0,1fr)}#axHero .ctas .btn{min-width:0}}
+</style>
+</head>
+<body data-ax-page="home">
+<section class="hero" id="axHero" dir="rtl" aria-labelledby="h1">
+  <canvas id="net" aria-hidden="true"></canvas>
+  <div class="wrap">
+    <div class="copy">
+      <div class="logo" id="logo">
+        <svg viewBox="0 0 106 119" aria-hidden="true">
+          <path id="br1" d="M0 22 V0 H22"/>
+          <path id="br2" class="g" d="M84 0 H106 V22"/>
+          <path id="br3" d="M106 97 V119 H84"/>
+          <path id="br4" d="M22 119 H0 V97"/>
+        </svg>
+        <img id="logoImg" src="assets/brand/abadx-mark-black-tight.png" alt="Abad X">
+      </div>
+      <div class="eyebrow mono i18n-skip" id="eyebrow"><i></i><span>ABAD X · IT ACADEMY · HANDS-ON</span></div>
+      <h1 id="h1" class="i18n-skip" aria-label="اتعلّم تقنية المعلومات عملياً على مختبرات حقيقية"><span id="arTyped" aria-hidden="true"></span><span class="caret" id="arCaret" aria-hidden="true"></span><span class="ghost" id="arGhost" aria-hidden="true"></span></h1>
+      <p class="sub i18n-skip" id="sub" aria-label="تخصصات، شهادات، وغرف تدريب — بسرعتك"><span id="subTyped" aria-hidden="true"></span><span class="caret" id="subCaret" aria-hidden="true"></span><span class="ghost" id="subGhost" aria-hidden="true"></span></p>
+      <p class="en i18n-skip" id="en" lang="en" aria-label="Hands-on IT training on real labs."><span id="enTyped" aria-hidden="true"></span><span class="caret" id="enCaret" aria-hidden="true"></span><span class="ghost" id="enGhost" aria-hidden="true"></span></p>
+      <div class="ctas" id="ctas">
+        <a class="btn primary" href="portal.html"><span class="i18n-ar">ابدأ التعلّم</span><span class="i18n-en">Start learning</span> <span class="arr">←</span></a>
+        <a class="btn ghostbtn" href="academy.html"><span class="i18n-ar">استكشف التخصصات</span><span class="i18n-en">Explore specialties</span></a>
+      </div>
+      <div class="path mono i18n-skip" id="path">
+        <a class="n" href="academy.html">ACADEMY</a><span class="sep"></span><a class="n" href="self-learning.html">ROOMS</a><span class="sep"></span><a class="n g" href="labs.html">LABS</a><span class="sep"></span><a class="n" href="ctf.html">CTF</a><span class="sep"></span><a class="n" href="library.html">LIBRARY</a>
+      </div>
+    </div>
+
+    <div class="term i18n-skip" id="term" role="img" aria-label="Demo terminal (fictional output)">
+      <div class="bar"><i></i><i></i><i></i><span id="termHost">lab@abadx — net-01</span><em>demo · fictional</em></div>
+      <div class="tabs" id="tabs"><span data-k="net">NET</span><span data-k="linux">LINUX</span><span data-k="cloud">CLOUD</span><span data-k="kali">KALI</span></div>
+      <pre id="termOut" aria-hidden="true"></pre>
+    </div>
+  </div>
+</section>
 <script>
-const RM=matchMedia('(prefers-reduced-motion: reduce)').matches;
-// code rain
-(()=>{const c=document.getElementById('rain'),x=c.getContext('2d');let w,h,cols,d;const ch='0123456789ABCDEF<>/{}#$';const fs=15;
-const rs=()=>{w=c.width=innerWidth;h=c.height=innerHeight;cols=Math.ceil(w/fs);d=Array.from({length:cols},()=>Math.random()*-h/fs)};rs();addEventListener('resize',rs);
-const draw=()=>{x.fillStyle='rgba(0,0,0,.09)';x.fillRect(0,0,w,h);x.font=fs+'px monospace';d.forEach((y,i)=>{x.fillStyle=Math.random()<.04?'#bfe6ff':'#1d6fff';x.fillText(ch[Math.random()*ch.length|0],i*fs,y*fs);d[i]=y*fs>h&&Math.random()>.975?0:y+1})};
-if(RM){for(let k=0;k<60;k++)draw()}else{let t=0;const loop=n=>{if(n-t>55){draw();t=n}requestAnimationFrame(loop)};requestAnimationFrame(loop)}})();
-// boot
-const lines=[['> initializing Abad X secure shell...',''],['> loading lab modules [net|linux|sec|cloud] ... ok',''],['> handshake: TLS 1.3 / node riyadh-01 ... ok',''],['> WARNING: access restricted','w'],['> authentication required_','r']];
-const boot=document.getElementById('boot');
-(async()=>{for(const[t,k] of lines){const s=document.createElement('span');s.className=k;boot.append(s);if(RM){s.textContent=t}else{for(const ch of t){s.textContent+=ch;await new Promise(r=>setTimeout(r,14))}}boot.append('\n')}})();
-// form
-const f=document.getElementById('f'),u=document.getElementById('user'),p=document.getElementById('pw'),tog=document.getElementById('tog'),msg=document.getElementById('msg'),st=document.getElementById('status');
-const sv=localStorage.getItem('abadx-user');if(sv){u.value=sv;document.getElementById('rem').checked=true}
-u.onfocus=()=>document.getElementById('c1').style.display='none';u.onblur=()=>{if(!u.value)document.getElementById('c1').style.display=''};
-const bad=(i,l,e,m)=>{document.getElementById(l).dataset.bad=!!m;i.setAttribute('aria-invalid',!!m);document.getElementById(e).textContent=m||''};
-u.oninput=()=>bad(u,'l1','ue');p.oninput=()=>bad(p,'l2','pe');
-tog.onclick=()=>{const s=p.type==='password';p.type=s?'text':'password';tog.textContent=s?'hide':'show';tog.setAttribute('aria-pressed',s);p.focus()};
-document.getElementById('forgot').onclick=e=>{e.preventDefault();msg.style.color='#93c5fd';msg.textContent='استعادة كلمة المرور غير متاحة في النسخة التجريبية — تواصل مع فريق Abad X.'};
-const show=(ok)=>{st.innerHTML=`<div class="${ok?'ok':'no'}">${ok?'ACCESS GRANTED':'ACCESS DENIED'}</div>`;st.classList.add("on");if(location.hash==="#demo-denied")st.classList.add("static");if(!ok&&location.hash!=="#demo-denied")setTimeout(()=>st.classList.remove("on"),1600)};
-f.onsubmit=e=>{e.preventDefault();msg.style.color='';let first=null;const uv=u.value.trim();
-if(!uv){bad(u,'l1','ue','الرجاء إدخال اسم المستخدم أو البريد الإلكتروني.');first=u}else if(uv.includes('@')&&!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(uv)){bad(u,'l1','ue','صيغة البريد الإلكتروني غير صحيحة.');first=u}
-if(!p.value){bad(p,'l2','pe','الرجاء إدخال كلمة المرور.');first=first||p}
-if(first){msg.textContent='تم رفض الوصول: يرجى تصحيح الحقول المحددة.';show(false);first.focus();return}
-msg.style.color='#7dd3fc';msg.textContent='تم منح الوصول… جارٍ التحويل';show(true);
-sessionStorage.setItem('abadx-user',uv);document.getElementById('rem').checked?localStorage.setItem('abadx-user',uv):localStorage.removeItem('abadx-user');
-setTimeout(()=>location.href='intro.html',RM?300:1300)};
-if(location.hash==='#demo-denied')setTimeout(()=>f.requestSubmit(),1500);
-</script><script src="assets/i18n.js"></script></body></html>
+(() => {
+  const AR  = 'اتعلّم تقنية المعلومات عملياً على مختبرات حقيقية';
+  const SUB = 'تخصصات، شهادات، وغرف تدريب — بسرعتك';
+  const EN  = 'Hands-on IT training on real labs.';
+  const arChars = Array.from(AR);
+  const subChars = Array.from(SUB);
+  const enChars = Array.from(EN);
+
+  // Rough timeline (~3s to headline settle, then CTAs + terminal)
+  // logo 0–700, AR type ~620–1700, EN ~1820–2550, CTAs ~2700, term fade+type ~2800+
+  const T = {
+    logoIn: 0, logoDur: 700,
+    brackets: 80, bracketsDur: 560,
+    arStart: 620, arStep: 28,
+    subGap: 140, subStep: 20,
+    enGap: 120, enStep: 20,
+    btnGap: 160, btnDur: 420,
+    termFadeDur: 500
+  };
+  T.arEnd = T.arStart + arChars.length * T.arStep;
+  T.subStart = T.arEnd + T.subGap;
+  T.subEnd = T.subStart + subChars.length * T.subStep;
+  T.enStart = T.subEnd + T.enGap;
+  T.enEnd = T.enStart + enChars.length * T.enStep;
+  T.btnAt = T.enEnd + T.btnGap;
+  T.termFadeAt = T.btnAt + 80;
+  T.termStart = T.termFadeAt + 400;
+
+  const $ = (id) => document.getElementById(id);
+  const logo = $('logo');
+  const eyebrow = $('eyebrow');
+  const arTyped = $('arTyped');
+  const arCaret = $('arCaret');
+  const arGhost = $('arGhost');
+  const subTyped = $('subTyped');
+  const subCaret = $('subCaret');
+  const subGhost = $('subGhost');
+  const enTyped = $('enTyped');
+  const enCaret = $('enCaret');
+  const enGhost = $('enGhost');
+  const ctas = $('ctas');
+  const path = $('path');
+  const term = $('term');
+  const termOut = $('termOut');
+  const brPaths = [1,2,3,4].map(i => document.getElementById('br'+i));
+
+  arGhost.textContent = AR;
+  subGhost.textContent = SUB;
+  enGhost.textContent = EN;
+  const termHost = $('termHost');
+  const tabs = Array.from(document.querySelectorAll('#tabs span'));
+  function setTab(k, host) {
+    tabs.forEach(t => t.classList.toggle('on', t.dataset.k === k));
+    if (host) termHost.textContent = host;
+  }
+
+  // Broad-IT demo session: networking → linux → cloud → Kali lab (all fictional output)
+  const P = (u, h) => '<span class="p">' + u + '@' + h + '</span>:<span class="u">~</span>$ ';
+  const TERM_LINES = [
+    {tab: 'net', host: 'lab@abadx — net-01'},
+    {html: P('lab','net-01'), type: 'ping -c 2 10.10.10.1'},
+    {html: '<span class="o">64 bytes from 10.10.10.1: icmp_seq=1 time=0.8 ms\n2 packets transmitted, 2 received, 0% loss</span>', delay: 300},
+    {html: '\n' + P('lab','net-01'), type: 'show vlan brief'},
+    {html: '<span class="o">10  USERS    active   Gi0/1-12\n20  SERVERS  active   Gi0/13-24</span>', delay: 380},
+    {tab: 'linux', host: 'lab@abadx — linux-01'},
+    {html: '\n' + P('lab','linux-01'), type: 'systemctl is-active nginx'},
+    {html: '<span class="ok">active</span>', delay: 380},
+    {tab: 'cloud', host: 'lab@abadx — cloud-01'},
+    {html: '\n' + P('lab','cloud-01'), type: 'kubectl get nodes'},
+    {html: '<span class="o">NAME      STATUS   ROLES           AGE\nnode-1    Ready    control-plane   2d\nnode-2    Ready    worker          2d</span>', delay: 380},
+    {tab: 'kali', host: 'kali@abadx — kali-lab'},
+    {html: '\n' + P('kali','lab'), type: 'nmap -F 10.10.20.5'},
+    {html: '<span class="o">22/tcp open ssh · 80/tcp open http</span>', delay: 280},
+    {html: '\n<span class="ok">[✓] room complete · next: academy track</span>\n' + P('lab','abadx') + '<span class="tc"></span>', delay: 180}
+  ];
+
+  let timers = [];
+  let rafId = 0;
+  let running = false;
+
+  function clearTimers() {
+    timers.forEach(clearTimeout);
+    timers = [];
+  }
+  function later(ms, fn) {
+    const id = setTimeout(fn, ms);
+    timers.push(id);
+    return id;
+  }
+
+  function fade(el, from, to, dur, delay) {
+    later(delay, () => {
+      el.style.transition = `opacity ${dur}ms ease`;
+      el.style.opacity = String(from);
+      // force reflow
+      void el.offsetWidth;
+      el.style.opacity = String(to);
+    });
+  }
+
+  function typeChars(chars, target, caret, start, step) {
+    const ghost = document.getElementById(target.id.replace('Typed', 'Ghost'));
+    later(start, () => caret.classList.add('on'));
+    chars.forEach((ch, i) => {
+      later(start + (i + 1) * step, () => {
+        target.textContent += ch;
+        if (ghost) ghost.textContent = chars.slice(i + 1).join('');
+        if (i === chars.length - 1) {
+          later(180, () => caret.classList.remove('on'));
+        }
+      });
+    });
+  }
+
+  function typeTermLine(text, baseHtml, start, cps) {
+    // type character by character into terminal after baseHtml prompt
+    const step = Math.max(12, Math.floor(1000 / (cps || 42)));
+    const chars = Array.from(text);
+    chars.forEach((ch, i) => {
+      later(start + (i + 1) * step, () => {
+        // rebuild: keep previous committed + current typed
+        const committed = termOut.dataset.committed || '';
+        termOut.innerHTML = committed + baseHtml + '<span class="u">' + text.slice(0, i + 1) + '</span><span class="tc"></span>';
+      });
+    });
+    const doneAt = start + chars.length * step + 40;
+    later(doneAt, () => {
+      const committed = (termOut.dataset.committed || '') + baseHtml + '<span class="u">' + text + '</span>\n';
+      termOut.dataset.committed = committed;
+      termOut.innerHTML = committed + '<span class="tc"></span>';
+    });
+    return doneAt;
+  }
+
+  function runTerminal(startAt) {
+    termOut.dataset.committed = '';
+    termOut.innerHTML = '<span class="tc"></span>';
+    let t = startAt;
+    TERM_LINES.forEach((line) => {
+      if (line.tab) {
+        later(t, () => setTab(line.tab, line.host));
+      } else if (line.type) {
+        const done = typeTermLine(line.type, line.html, t, 46);
+        t = done + 180;
+      } else {
+        later(t, () => {
+          const committed = (termOut.dataset.committed || '') + line.html + '\n';
+          termOut.dataset.committed = committed;
+          termOut.innerHTML = committed + '<span class="tc"></span>';
+        });
+        t += (line.delay || 300);
+      }
+    });
+  }
+
+  function resetUI() {
+    clearTimers();
+    logo.style.transition = 'none';
+    logo.style.opacity = '0';
+    eyebrow.style.transition = 'none';
+    eyebrow.style.opacity = '0';
+    ctas.style.transition = 'none';
+    ctas.style.opacity = '0';
+    path.style.transition = 'none';
+    path.style.opacity = '0';
+    term.style.transition = 'none';
+    term.style.opacity = '0';
+    arTyped.textContent = '';
+    subTyped.textContent = '';
+    arGhost.textContent = AR; subGhost.textContent = SUB; enGhost.textContent = EN;
+    enTyped.textContent = '';
+    subCaret.classList.remove('on');
+    setTab('net', 'lab@abadx — net-01');
+    arCaret.classList.remove('on');
+    enCaret.classList.remove('on');
+    termOut.innerHTML = '';
+    termOut.dataset.committed = '';
+    brPaths.forEach(p => {
+      p.style.transition = 'none';
+      p.style.strokeDashoffset = '44';
+    });
+  }
+
+  function play() {
+    resetUI();
+    running = true;
+    fade(logo, 0, 1, T.logoDur, T.logoIn);
+    later(T.brackets, () => {
+      brPaths.forEach((p, i) => {
+        later(i * 70, () => {
+          p.style.transition = `stroke-dashoffset ${T.bracketsDur}ms cubic-bezier(.4,0,.2,1)`;
+          p.style.strokeDashoffset = '0';
+        });
+      });
+    });
+    fade(eyebrow, 0, 1, 400, Math.max(0, T.arStart - 80));
+    typeChars(arChars, arTyped, arCaret, T.arStart, T.arStep);
+    typeChars(subChars, subTyped, subCaret, T.subStart, T.subStep);
+    typeChars(enChars, enTyped, enCaret, T.enStart, T.enStep);
+    fade(ctas, 0, 1, T.btnDur, T.btnAt);
+    fade(path, 0, 1, T.btnDur, T.btnAt + 80);
+    fade(term, 0, 1, T.termFadeDur, T.termFadeAt);
+    runTerminal(T.termStart);
+  }
+
+  // ---- network canvas ----
+  const canvas = $('net');
+  const ctx = canvas.getContext('2d');
+  let W = 0, H = 0, dpr = 1;
+  // Nodes: broad IT map (network · linux · cloud · db · lab) + extras
+  const nodesRel = [
+    {x:0.12,y:0.55,label:'NET',gold:true},
+    {x:0.28,y:0.32,label:'LINUX',gold:false},
+    {x:0.38,y:0.62,label:'CLOUD',gold:true},
+    {x:0.52,y:0.28,label:'',gold:false},
+    {x:0.62,y:0.58,label:'DB',gold:false},
+    {x:0.78,y:0.40,label:'LAB',gold:true},
+    {x:0.86,y:0.68,label:'',gold:false},
+    {x:0.20,y:0.78,label:'',gold:false},
+    {x:0.48,y:0.78,label:'',gold:false},
+    {x:0.70,y:0.22,label:'',gold:false}
+  ];
+  const edges = [
+    [0,1],[0,2],[0,7],[1,2],[1,3],[2,4],[2,8],[3,5],[3,4],[4,5],[4,6],[5,6],[5,9],[3,9],[7,8],[8,4]
+  ];
+  let packets = [];
+  let t0 = performance.now();
+
+  function resize() {
+    const r = canvas.parentElement.getBoundingClientRect();
+    dpr = Math.min(window.devicePixelRatio || 1, 2);
+    W = r.width; H = r.height;
+    canvas.width = Math.floor(W * dpr);
+    canvas.height = Math.floor(H * dpr);
+    canvas.style.width = W + 'px';
+    canvas.style.height = H + 'px';
+    ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+  }
+  function nodePos(n) { return {x: n.x * W, y: n.y * H}; }
+
+  function draw(now) {
+    const t = (now - t0) / 1000;
+    ctx.clearRect(0, 0, W, H);
+    // edges
+    ctx.lineWidth = 1.15;
+    edges.forEach(([a,b], ei) => {
+      const A = nodePos(nodesRel[a]), B = nodePos(nodesRel[b]);
+      ctx.strokeStyle = 'rgba(10,10,10,0.16)';
+      ctx.beginPath();
+      ctx.moveTo(A.x, A.y);
+      ctx.lineTo(B.x, B.y);
+      ctx.stroke();
+      // traveling dash packet
+      const phase = (t * 0.22 + ei * 0.17) % 1;
+      const px = A.x + (B.x - A.x) * phase;
+      const py = A.y + (B.y - A.y) * phase;
+      ctx.fillStyle = 'rgba(245,189,45,0.75)';
+      ctx.beginPath();
+      ctx.arc(px, py, 2.0, 0, Math.PI * 2);
+      ctx.fill();
+    });
+    // nodes
+    nodesRel.forEach((n, i) => {
+      const p = nodePos(n);
+      const pulse = 0.5 + 0.5 * Math.sin(t * 2.4 + i * 0.7);
+      if (n.gold) {
+        ctx.beginPath();
+        ctx.arc(p.x, p.y, 12 + pulse * 5, 0, Math.PI * 2);
+        ctx.fillStyle = `rgba(245,189,45,${0.14 + pulse * 0.16})`;
+        ctx.fill();
+        ctx.beginPath();
+        ctx.arc(p.x, p.y, 3.2, 0, Math.PI * 2);
+        ctx.fillStyle = '#F5BD2D';
+        ctx.fill();
+        if (n.label) {
+          ctx.font = '600 10px "JetBrains Mono", monospace';
+          ctx.fillStyle = 'rgba(10,10,10,0.45)';
+          ctx.textAlign = 'center';
+          ctx.fillText(n.label, p.x, p.y - 16);
+        }
+      } else {
+        ctx.beginPath();
+        ctx.arc(p.x, p.y, 2.8, 0, Math.PI * 2);
+        ctx.fillStyle = 'rgba(10,10,10,0.38)';
+        ctx.fill();
+        if (n.label) {
+          ctx.font = '500 9.5px "JetBrains Mono", monospace';
+          ctx.fillStyle = 'rgba(10,10,10,0.32)';
+          ctx.textAlign = 'center';
+          ctx.fillText(n.label, p.x, p.y - 12);
+        }
+      }
+    });
+    rafId = requestAnimationFrame(draw);
+  }
+
+  function startNet() {
+    resize();
+    t0 = performance.now();
+    if (rafId) cancelAnimationFrame(rafId);
+    rafId = requestAnimationFrame(draw);
+  }
+
+  window.addEventListener('resize', resize);
+
+  const RM = window.matchMedia && matchMedia('(prefers-reduced-motion: reduce)').matches;
+  function settle() {
+    resetUI();
+    [logo, eyebrow, ctas, path, term].forEach(el => { el.style.opacity = '1'; });
+    brPaths.forEach(p => { p.style.strokeDashoffset = '0'; });
+    arTyped.textContent = AR; subTyped.textContent = SUB; enTyped.textContent = EN;
+    arGhost.textContent = subGhost.textContent = enGhost.textContent = '';
+    let html = '';
+    TERM_LINES.forEach(l => { if (l.tab) setTab(l.tab, l.host); else if (l.type) html += l.html + '<span class="u">' + l.type + '</span>\n'; else html += l.html + '\n'; });
+    termOut.innerHTML = html;
+  }
+  if (RM) { resize(); settle(); return; }
+  // wait for fonts then play
+  document.fonts.ready.then(() => {
+    startNet();
+    play();
+  }).catch(() => {
+    startNet();
+    play();
+  });
+})();
+</script>
+<script src="assets/topnav.js?v=REV"></script><script src="assets/i18n.js"></script>
+</body>
+</html>

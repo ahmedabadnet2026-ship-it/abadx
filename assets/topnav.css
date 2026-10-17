@@ -83,3 +83,14 @@ body.has-ax-nav #langFab,
 body.has-ax-nav .i18n-fab{display:none!important}
 /* the top nav carries its own AR/EN switch; hide the legacy floating one */
 body.has-ax-nav .abx-lang{display:none!important}
+/* bigger, clearly readable black logo: tight hexagon mark + ABAD X wordmark */
+.ax-topnav .ax-logo{gap:12px;padding:6px 4px}
+.ax-topnav .ax-logo img{content:url(brand/abadx-mark-black-tight.png)!important;height:44px!important;width:auto!important;filter:none!important}
+.ax-topnav .ax-logo span{font-size:1.18rem;letter-spacing:.2em;font-weight:800;color:#0A0A0A}
+.ax-topnav-inner{min-height:72px}
+.ax-tab.active::after{bottom:-16px}
+@media (max-width:900px){
+  .ax-topnav-inner{min-height:62px}
+  .ax-topnav .ax-logo img{height:34px!important}
+  .ax-topnav .ax-logo span{font-size:1rem;letter-spacing:.18em}
+}
