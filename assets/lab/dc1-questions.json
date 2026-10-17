@@ -1,0 +1,92 @@
+[
+  {
+    "id": 1,
+    "title": "Recon — find the target",
+    "en": "From Kali (10.10.0.10), sweep 172.16.10.0/24. Identify the new VulnHub host (DC-1) and its IP. (No flag — recon step.)",
+    "ar": "من Kali (10.10.0.10)، افحص 172.16.10.0/24. حدّد جهاز VulnHub الجديد (DC-1) و IP بتاعه. (مفيش flag — خطوة استطلاع.)",
+    "machine": "lab-kali → lab-dc1",
+    "domain": "AM / HNA",
+    "flag": "— (no flag)"
+  },
+  {
+    "id": 2,
+    "title": "Service & CMS fingerprint",
+    "en": "Scan the DC-1 IP. Which TCP ports are open, and what CMS + major version runs on the web port? (No flag — enumeration.)",
+    "ar": "اعمل scan لـ DC-1. إيه البورتات المفتوحة؟ وإيه الـ CMS وإصداره على بورت الويب؟ (مفيش flag — تعداد.)",
+    "machine": "lab-dc1",
+    "domain": "WAP / HNA",
+    "flag": "— (no flag)"
+  },
+  {
+    "id": 3,
+    "title": "Flag 1 — initial foothold clue",
+    "en": "Gain an initial foothold on the web app. The first clue flag tells you how configuration can help you. Capture Flag 1.",
+    "ar": "خُد foothold أولي على تطبيق الويب. أول flag فيه تلميح إن الإعدادات ممكن تساعدك. امسك Flag 1.",
+    "machine": "lab-dc1",
+    "domain": "WAP / HNP",
+    "flag": "🚩 Flag 1 — instructor-only"
+  },
+  {
+    "id": 4,
+    "title": "Flag 2 — config / credentials",
+    "en": "Follow Flag 1's hint to the CMS configuration. Flag 2 points at credentials and warns against brute force. Capture Flag 2 and the DB credentials it leads to.",
+    "ar": "اتبع تلميح Flag 1 لإعدادات الـ CMS. Flag 2 بيشاور على credentials وبيحذّر من brute force. امسك Flag 2 وبيانات الـ DB.",
+    "machine": "lab-dc1",
+    "domain": "WAP / HNP",
+    "flag": "🚩 Flag 2 — instructor-only"
+  },
+  {
+    "id": 5,
+    "title": "Flag 3 — database access",
+    "en": "Use the recovered credentials to reach the CMS database. Inside is Flag 3, hinting at enabling further access (e.g. a new admin). Capture Flag 3.",
+    "ar": "استخدم الـ credentials للوصول لقاعدة بيانات الـ CMS. جواها Flag 3 بيلمّح لتفعيل وصول أكبر (أدمن جديد). امسك Flag 3.",
+    "machine": "lab-dc1",
+    "domain": "WAP / HNP",
+    "flag": "🚩 Flag 3 — instructor-only"
+  },
+  {
+    "id": 6,
+    "title": "Flag 4 — user flag",
+    "en": "After escalating within the app/host to a normal user, read the user-level flag from that user's home directory. What is the user flag?",
+    "ar": "بعد ما ترفع صلاحيتك لمستخدم عادي على الجهاز، اقرأ flag المستخدم من مجلد الـ home بتاعه. إيه الـ user flag؟",
+    "machine": "lab-dc1",
+    "domain": "HNP",
+    "flag": "🚩 user flag — instructor-only"
+  },
+  {
+    "id": 7,
+    "title": "Privesc — SUID path",
+    "en": "Enumerate for local privilege escalation. Identify the misconfigured SUID binary that enables root. Which binary/path do you abuse? (No flag — technique.)",
+    "ar": "اعمل تعداد لرفع الصلاحيات المحلي. حدّد الـ SUID binary الغلط اللي يوديك root. أنهي binary/مسار؟ (مفيش flag — تقنية.)",
+    "machine": "lab-dc1",
+    "domain": "HNP",
+    "flag": "— (no flag)"
+  },
+  {
+    "id": 8,
+    "title": "Root flag — final",
+    "en": "Escalate to root and read the final flag in root's home directory. This is the ultimate goal. What is the root flag?",
+    "ar": "ارفع صلاحيتك لـ root واقرأ الـ flag النهائي في home بتاع root. ده الهدف النهائي. إيه الـ root flag؟",
+    "machine": "lab-dc1",
+    "domain": "HNP",
+    "flag": "root flag — instructor-only"
+  },
+  {
+    "id": 9,
+    "title": "Scoreboard — all flags",
+    "en": "List all flags you captured in order (1 → 4 → root) with the file path where each was found. (Values stay in your notes; instructor page holds the key.)",
+    "ar": "اكتب كل الـ flags اللي مسكتها بالترتيب (1 → 4 → root) مع مسار كل واحد. (القيم في ملاحظاتك؛ المفتاح عند المدرب.)",
+    "machine": "lab-dc1",
+    "domain": "AM",
+    "flag": "scoreboard — instructor-only"
+  },
+  {
+    "id": 10,
+    "title": "Write-up — attack path",
+    "en": "In 3–5 bullets, summarize recon → web foothold → DB/creds → user flag → SUID privesc → root flag, without pasting exploit payloads.",
+    "ar": "في ٣–٥ نقاط، لخّص: استطلاع → دخول ويب → DB/credentials → user flag → رفع صلاحيات SUID → root flag، بدون لصق payloads.",
+    "machine": "lab-dc1",
+    "domain": "AM",
+    "flag": "— (methodology)"
+  }
+]

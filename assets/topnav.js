@@ -30,6 +30,12 @@
           <p class="i18n-ar">بيئة كاملة + Kali في المتصفح + أسئلة تدريب</p>
           <p class="i18n-en en" style="direction:ltr;text-align:left">Full environment + browser Kali + practice Qs</p>
         </a>
+        <a href="labs.html?open=dc1">
+          <div class="path">INE → VulnHub Labs → DC-1</div>
+          <strong>DC-1</strong>
+          <p class="i18n-ar">هدف VulnHub على 172.16.10.40 — هجوم من Kali</p>
+          <p class="i18n-en en" style="direction:ltr;text-align:left">VulnHub target at 172.16.10.40 — attack from Kali</p>
+        </a>
         <a href="labs.html"><span class="i18n-ar">كل المختبرات</span><span class="i18n-en">All labs</span></a>
       </div>
     </div>`;
@@ -64,6 +70,7 @@
       <a class="${page==='ctf'?'active':''}" href="ctf.html">${I.ctf} <span class="i18n-ar">تحديات CTF</span><span class="i18n-en">CTF</span></a>
       <a class="${page==='labs'?'active':''}" href="labs.html">${I.labs} <span class="i18n-ar">المختبر</span><span class="i18n-en">Labs</span></a>
       <a class="ax-msub" href="labs.html?open=1">INE → eJPT → Exam Lab</a>
+      <a class="ax-msub" href="labs.html?open=dc1">INE → VulnHub → DC-1</a>
       <a class="${page==='library'?'active':''}" href="library.html">${I.library} <span class="i18n-ar">المكتبة</span><span class="i18n-en">Library</span></a>
       <a class="${page.match(/self-learning|room/)?'active':''}" href="self-learning.html">${I.self} <span class="i18n-ar">تعلّم ذاتي</span><span class="i18n-en">Self-Learning</span></a>
       <div class="ax-mactions">
