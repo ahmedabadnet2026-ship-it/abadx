@@ -1,0 +1,7 @@
+{
+  "guacamoleBaseUrl": "https://example.trycloudflare.com/guacamole/",
+  "kaliConnectionName": "lab-kali",
+  "kaliClientHash": "MQBjAHBvc3RncmVzcWw=",
+  "kaliClientUrl": "https://example.trycloudflare.com/guacamole/#/client/MQBjAHBvc3RncmVzcWw=",
+  "studentUser": "student"
+}

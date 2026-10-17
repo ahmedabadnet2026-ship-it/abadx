@@ -1,22 +1,164 @@
-<!doctype html><html lang="ar" dir="rtl"><head><meta charset="utf-8"><script>(function(){try{var l=localStorage.getItem("abadx-lang")==="en"?"en":"ar";var h=document.documentElement;h.lang=l;h.dir=l==="en"?"ltr":"rtl";h.setAttribute("data-lang",l)}catch(e){}})()</script><link rel="stylesheet" href="assets/i18n.css"><meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Abad X | المختبر</title><link rel="icon" href="assets/brand/favicon-32.png" sizes="32x32" type="image/png"><link rel="apple-touch-icon" href="assets/brand/favicon-180.png">
-<link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@700&display=swap" rel="stylesheet"><link rel="stylesheet" href="assets/style.css">
+<!doctype html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="utf-8">
+<script>(function(){try{var l=localStorage.getItem("abadx-lang")==="en"?"en":"ar";var h=document.documentElement;h.lang=l;h.dir=l==="en"?"ltr":"rtl";h.setAttribute("data-lang",l)}catch(e){}})()</script>
+<link rel="stylesheet" href="assets/i18n.css">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Abad X | المختبر · Labs</title>
+<link rel="icon" href="assets/brand/favicon-32.png" sizes="32x32" type="image/png">
+<link rel="apple-touch-icon" href="assets/brand/favicon-180.png">
+<link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/style.css">
 <style>
-:root{--mono:'JetBrains Mono','Fira Code',ui-monospace,'DejaVu Sans Mono',monospace;--b:#38bdf8}
-body{min-height:100vh;display:grid;place-items:center;background:radial-gradient(ellipse at 50% -10%,rgba(29,111,255,.28),transparent 55%),#000}
-body:after{content:"";position:fixed;inset:0;pointer-events:none;background:repeating-linear-gradient(0deg,rgba(0,0,0,.25) 0 1px,transparent 1px 3px),radial-gradient(ellipse at center,transparent 60%,rgba(0,0,0,.8))}
-main{text-align:center;padding:40px 20px;width:min(560px,94vw)}
-.wm{font-family:var(--mono);font-size:clamp(2.6rem,9vw,4.5rem);margin:0;color:#e8f4ff;letter-spacing:3px;text-shadow:0 0 30px rgba(56,189,248,.45);line-height:1.1}.wm b{color:var(--b);text-shadow:0 0 24px var(--b)}
-.card{margin-top:34px;padding:32px 24px;border-radius:20px;background:rgba(8,14,28,.62);backdrop-filter:blur(14px);border:1px solid rgba(56,189,248,.45);box-shadow:0 0 30px rgba(56,189,248,.2)}
-.card img{width:72px;filter:drop-shadow(0 0 14px rgba(56,189,248,.6))}
-h2{margin:10px 0 0;font-size:1.7rem}.en{display:block;font-family:var(--mono);font-size:.85rem;color:#6f8fbd;letter-spacing:1px}
-.uc{display:inline-block;margin-top:18px;border:1px dashed #1d3a66;border-radius:99px;padding:4px 16px;color:#a9c3e6}
-.cur{display:inline-block;width:.55em;height:1em;background:var(--b);vertical-align:-2px;margin-inline-start:4px;animation:bl 1s steps(1) infinite}@keyframes bl{50%{opacity:0}}
-.back{display:inline-block;margin-top:24px;border:1px solid #16325c;border-radius:8px;padding:10px 18px;min-height:44px;box-sizing:border-box;color:#9db8e0}[dir=ltr] .back .arr{display:inline-block;transform:scaleX(-1)}.back:hover{color:var(--b);border-color:var(--b)}
-@media (prefers-reduced-motion:reduce){.cur{animation:none}}
-</style></head><body><main>
-<h1 class="wm">Abad <b>X</b></h1>
-<section class="card" aria-labelledby="t"><img src="assets/brand/abadx-mark.png" alt="Abad X"><h2 id="t">المختبر <span class="en">Labs</span></h2>
-<p class="uc">قيد البناء · Under construction<span class="cur" aria-hidden="true"></span></p></section>
-<a class="back" href="portal.html"><span class="arr" aria-hidden="true">→</span> العودة إلى البوابة · Back to portal</a>
-</main><script src="assets/i18n.js"></script></body></html>
+:root{--mono:'JetBrains Mono','Fira Code',ui-monospace,monospace;--b:#38bdf8;--panel:rgba(8,14,28,.72)}
+body{margin:0;min-height:100vh;background:radial-gradient(ellipse at 50% -10%,rgba(29,111,255,.28),transparent 55%),#000;color:#e8eefc}
+body:after{content:"";position:fixed;inset:0;pointer-events:none;z-index:0;background:repeating-linear-gradient(0deg,rgba(0,0,0,.22) 0 1px,transparent 1px 3px),radial-gradient(ellipse at center,transparent 55%,rgba(0,0,0,.75))}
+.wrap{position:relative;z-index:1;max-width:1200px;margin:0 auto;padding:28px 18px 60px}
+.top{display:flex;flex-wrap:wrap;gap:12px;align-items:center;justify-content:space-between;margin-bottom:18px}
+.brand{font-family:var(--mono);font-size:1.4rem;margin:0;color:#e8f4ff}.brand b{color:var(--b)}
+.back{border:1px solid #16325c;border-radius:8px;padding:8px 14px;color:#9db8e0;min-height:40px;display:inline-flex;align-items:center}
+.back:hover{color:var(--b);border-color:var(--b)}
+.draft{display:inline-block;margin:0 0 18px;border:1px dashed #4a6894;border-radius:999px;padding:3px 12px;color:#b9cbe6;font-size:.85rem}
+/* provider section */
+.prov{background:var(--panel);backdrop-filter:blur(12px);border:1px solid rgba(56,189,248,.3);border-radius:18px;padding:18px;margin-bottom:20px;box-shadow:0 0 28px rgba(56,189,248,.1)}
+.prov>h2{margin:0 0 4px;font-size:1.4rem;display:flex;align-items:center;gap:10px}
+.prov>h2 .tag{font-family:var(--mono);font-size:.7rem;color:#00121f;background:var(--b);border-radius:6px;padding:2px 8px}
+.prov>.sub{margin:0 0 14px;color:#8fb0db;font-size:.9rem}
+.track{border-inline-start:2px solid rgba(56,189,248,.35);margin-inline-start:6px;padding-inline-start:16px}
+.track>h3{margin:4px 0 10px;font-size:1.1rem;color:#dff2ff}
+.labrow{display:flex;flex-wrap:wrap;gap:12px}
+.lab{flex:1 1 260px;display:flex;flex-direction:column;border:1px solid #16325c;border-radius:14px;padding:16px;background:rgba(2,8,20,.55);transition:border-color .2s,transform .2s}
+.lab:hover{border-color:var(--b);transform:translateY(-3px)}
+.lab h4{margin:0 0 6px;font-size:1.05rem}
+.lab .en{display:block;font-family:var(--mono);font-size:.74rem;color:#6f8fbd}
+.lab p{margin:8px 0 12px;color:#b8cdec;font-size:.9rem}
+.lab .meta{display:flex;flex-wrap:wrap;gap:6px;margin-bottom:12px}
+.badge{border:1px solid #1d3a66;border-radius:999px;padding:1px 9px;font-size:.72rem;color:#9db8e0}
+.enter{margin-top:auto;display:inline-flex;align-items:center;justify-content:center;border-radius:8px;padding:8px 14px;min-height:40px;font-family:var(--mono);font-size:.85rem;border:1px solid var(--b);color:#00121f;background:var(--b);font-weight:700}
+.enter:hover{filter:brightness(1.08)}
+/* lab detail (hidden until opened) */
+.detail{display:none;margin-top:16px}
+.detail.open{display:block}
+.grid{display:grid;grid-template-columns:1.4fr 1fr;gap:18px}
+@media (max-width:960px){.grid{grid-template-columns:1fr}}
+.card{background:var(--panel);border:1px solid rgba(56,189,248,.35);border-radius:16px;padding:16px}
+.card h3{margin:0 0 8px;font-size:1.2rem}
+.card .en{display:block;font-family:var(--mono);font-size:.76rem;color:#6f8fbd}
+.hint{color:#a9c3e6;font-size:.92rem;margin:0 0 12px}
+.frame-wrap{position:relative;border-radius:12px;overflow:hidden;border:1px solid #16325c;background:#020814;min-height:420px}
+.frame-wrap iframe{width:100%;height:min(60vh,540px);border:0;background:#000}
+.actions{display:flex;flex-wrap:wrap;gap:10px;margin-top:12px}
+.btn{display:inline-flex;align-items:center;justify-content:center;border-radius:8px;padding:8px 14px;min-height:40px;font-family:var(--mono);font-size:.85rem;border:1px solid rgba(56,189,248,.5);color:#00121f;background:var(--b);font-weight:700}
+.btn.sec{background:transparent;color:#cfe7ff}
+.qs{max-height:min(60vh,540px);overflow:auto;padding-right:4px}
+.q{border:1px solid #16325c;border-radius:12px;padding:12px;margin:0 0 10px;background:rgba(2,8,20,.55)}
+.q h5{margin:0 0 6px;font-size:1rem;color:#dff2ff}
+.q .meta{font-family:var(--mono);font-size:.72rem;color:#7fa3d6;margin-bottom:8px}
+.q .ar{margin:0 0 6px}.q .enline{margin:0;color:#b8cdec;font-size:.92rem;direction:ltr;text-align:left}
+.status{font-size:.85rem;color:#86a3cc;margin-top:8px}
+.closebar{display:flex;justify-content:flex-end;margin-bottom:8px}
+.closebar button{background:transparent;border:1px solid #16325c;color:#9db8e0;border-radius:8px;padding:6px 12px;min-height:38px;cursor:pointer}
+.closebar button:hover{color:var(--b);border-color:var(--b)}
+</style>
+</head>
+<body>
+<main class="wrap">
+  <div class="top">
+    <h1 class="brand">Abad <b>X</b> · <span class="i18n-ar">المختبر</span><span class="i18n-en">Labs</span></h1>
+    <a class="back" href="portal.html"><span class="i18n-ar">العودة للبوابة</span><span class="i18n-en">Back to portal</span></a>
+  </div>
+
+  <!-- Provider: INE -->
+  <section class="prov" aria-labelledby="ine">
+    <h2 id="ine"><span class="i18n-ar">مختبر INE</span><span class="i18n-en">INE Lab</span> <span class="tag">INE</span></h2>
+    <p class="sub"><span class="i18n-ar">مسارات معتمدة على منهج INE وشهاداتها العملية.</span><span class="i18n-en">Tracks aligned with INE's hands-on certifications.</span></p>
+
+    <div class="track">
+      <h3>eJPT Labs</h3>
+      <div class="labrow">
+        <article class="lab">
+          <h4>Exam Lab <span class="en">eJPT-style full environment</span></h4>
+          <div class="meta">
+            <span class="badge">Kali</span><span class="badge">DMZ + Internal</span>
+            <span class="badge">Pivoting</span><span class="badge">WAP · HNP · HNA · AM</span>
+          </div>
+          <p><span class="i18n-ar">بيئة كاملة بأسلوب امتحان eJPT: اكتشاف شبكة، استغلال WordPress، pivoting لشبكة داخلية، و~٣٥ سؤال تدريبي. افتح Kali من المتصفح.</span><span class="i18n-en">A full eJPT-style exam environment: network discovery, WordPress exploitation, pivoting to an internal segment, and ~35 practice questions. Open Kali in the browser.</span></p>
+          <a class="enter" href="#" id="openExamLab"><span class="i18n-ar">دخول المختبر</span><span class="i18n-en">Enter lab</span></a>
+        </article>
+      </div>
+    </div>
+
+    <!-- Exam Lab detail -->
+    <div class="detail" id="examLabDetail">
+      <div class="closebar"><button id="closeExamLab"><span class="i18n-ar">إغلاق</span><span class="i18n-en">Close</span></button></div>
+      <div class="grid">
+        <section class="card" aria-labelledby="desk">
+          <h3 id="desk"><span class="i18n-ar">محطة Kali</span><span class="i18n-en">Kali workstation</span> <span class="en">Apache Guacamole</span></h3>
+          <p class="hint"><span class="i18n-ar">افتح جلسة Kali داخل المنصة. سجّل دخول Guacamole بحساب <b>student</b> (كلمة المرور من المدرب)، ثم تُفتح جلسة lab-kali تلقائياً.</span><span class="i18n-en">Open Kali inside the platform. Sign in to Guacamole as <b>student</b> (password from instructor); the lab-kali session opens automatically.</span></p>
+          <div class="frame-wrap"><iframe id="guac" title="Guacamole Kali" loading="lazy" referrerpolicy="no-referrer" allow="clipboard-read; clipboard-write; fullscreen"></iframe></div>
+          <div class="actions">
+            <a class="btn" id="openGuac" href="#" target="_blank" rel="noopener">Open Guacamole</a>
+            <a class="btn sec" id="openKali" href="#" target="_blank" rel="noopener">Open lab-kali connection</a>
+          </div>
+          <p class="status" id="guacStatus">Loading Guacamole config…</p>
+        </section>
+        <section class="card" aria-labelledby="practice">
+          <h3 id="practice"><span class="i18n-ar">أسئلة التدريب</span><span class="i18n-en">Practice questions</span> <span class="en">eJPT-style · no answers</span></h3>
+          <p class="hint"><span class="i18n-ar">~٣٥ سؤالاً أصلياً مبنية على هذا المختبر. الإجابات عند المدرب فقط.</span><span class="i18n-en">~35 original questions mapped to this lab. Answers are instructor-only.</span></p>
+          <div class="qs" id="qs"></div>
+        </section>
+      </div>
+    </div>
+  </section>
+</main>
+<script>
+async function loadConfig(){
+  const status=document.getElementById('guacStatus');
+  let cfg={};
+  try{
+    const r=await fetch('assets/lab/lab-config.json',{cache:'no-store'});
+    if(r.ok) cfg=await r.json();
+  }catch(e){}
+  const base=(cfg.guacamoleBaseUrl||'https://stationery-portland-soundtrack-weekly.trycloudflare.com/guacamole/').replace(/\/?$/,'/');
+  const clientUrl=cfg.kaliClientUrl || (base+'#/client/'+(cfg.kaliClientHash||'lab-kali'));
+  document.getElementById('openGuac').href=base;
+  document.getElementById('openKali').href=clientUrl;
+  const f=document.getElementById('guac');
+  f.dataset.src=clientUrl;
+  if(document.getElementById('examLabDetail').classList.contains('open')) f.src=clientUrl;
+  status.textContent='Guacamole: '+clientUrl+' · login: student (password from instructor)';
+}
+async function loadQuestions(){
+  const box=document.getElementById('qs');
+  try{
+    const r=await fetch('assets/lab/questions.json',{cache:'no-store'});
+    const qs=await r.json();
+    box.innerHTML=qs.map(q=>`<article class="q"><h5>Q${q.id} — ${q.title}</h5>
+      <div class="meta"><span class="badge">${q.domain||''}</span><span class="badge">${q.machine||''}</span></div>
+      <p class="ar">${q.ar||''}</p><p class="enline">${q.en||''}</p></article>`).join('');
+  }catch(e){box.innerHTML='<p class="hint">Could not load questions.json</p>';}
+}
+const detail=document.getElementById('examLabDetail');
+document.getElementById('openExamLab').addEventListener('click',e=>{
+  e.preventDefault();
+  detail.classList.add('open');
+  const f=document.getElementById('guac');
+  if(f.dataset.src) f.src=f.dataset.src;
+  detail.scrollIntoView({behavior:'smooth'});
+});
+document.getElementById('closeExamLab').addEventListener('click',()=>detail.classList.remove('open'));
+loadQuestions();
+(async()=>{
+  await loadConfig();
+  if(location.search.includes('open')){
+    detail.classList.add('open');
+    const f=document.getElementById('guac');
+    if(f.dataset.src) f.src=f.dataset.src;
+    detail.scrollIntoView({behavior:'smooth'});
+  }
+})();
+</script>
+<script src="assets/i18n.js"></script>
+</body>
+</html>
